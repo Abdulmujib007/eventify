@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  font-size: 18px; /* to use - value / root */
+  font-size: 16px; /* to use - value / root */
 }
 
 @theme inline {
@@ -13,6 +13,7 @@
   --font-mono: var(--font-geist-mono);
   --color-tifyPurple:#2B293D;
   --color-tifyYellow:#FFE047;
+  --color-footerText:#A9A9A9
 }
 
 /* @media (prefers-color-scheme: dark) {

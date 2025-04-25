@@ -1,15 +1,17 @@
 'use client'
 
 import Image from "next/image"
-import NavLink from "./NavLink"
+import NavLink from "../atom/NavLink"
 import { useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 
 function Navbar() {
+  const pathname = usePathname()
   const [isLoggedIn,setIsLoggedIn] = useState(false)
   return (
-    <div className="px-[5.56rem] flex justify-between items-end h-[4.2rem] bg-tifyPurple text-[#fff]">
+    <div className={`px-[5.56rem] flex justify-between items-end h-[4.2rem] bg-tifyPurple text-[#fff] ${pathname === '/login' || pathname === '/signup' ? 'hidden' :'flex' } `}>
         <section className="flex">
             <Image
                 src={'/ticket.svg'}
@@ -23,7 +25,7 @@ function Navbar() {
         <section className="h-full">
           {
             !isLoggedIn && (
-              <div className="text-2xl font-medium flex h-full gap-7 items-center">
+              <div className="text-lg font-medium flex h-full gap-7 items-center">
                   <Link href={'/'}>
                    <span className="p-0">Create Event</span>
                   </Link>

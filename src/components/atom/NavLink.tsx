@@ -11,7 +11,7 @@ function NavLink() {
         <p
           className={`${
             pathname === "/" ? "border-b-[3px] border-b-tifyYellow font-semibold" : ""
-          } pb-4 font-medium text-2xl hover:border-b-[3px] border-b-tifyYellow `}
+          } pb-4 font-medium text-lg hover:border-b-[3px] border-b-tifyYellow `}
         >
           Home
         </p>
@@ -20,7 +20,7 @@ function NavLink() {
         <p
           className={`${
             pathname === "/events" ? "border-b-[3px] border-b-tifyYellow font-semibold " : ""
-          } pb-4 font-medium text-2xl hover:border-b-[3px] border-b-tifyYellow `}
+          } pb-4 font-medium text-lg hover:border-b-[3px] border-b-tifyYellow `}
         >
           Events
         </p>
@@ -29,7 +29,7 @@ function NavLink() {
         <p
           className={`${
             pathname === "/about" ? "border-b-[3px] border-b-tifyYellow font-semibold" : ""
-          } pb-4 font-medium text-2xl hover:border-b-[3px] border-b-tifyYellow `}
+          } pb-4 font-medium text-lg hover:border-b-[3px] border-b-tifyYellow `}
         >
           About
         </p>
@@ -38,7 +38,7 @@ function NavLink() {
         <p
           className={`${
             pathname === "/contact" ? "border-b-[3px] border-b-tifyYellow font-semibold" : ""
-          } pb-4 font-medium text-2xl hover:border-b-[3px] border-b-tifyYellow `}
+          } pb-4 font-medium text-lg hover:border-b-[3px] border-b-tifyYellow `}
         >
           Contact
         </p>
