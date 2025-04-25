@@ -31,3 +31,15 @@ body {
   width: 100dvw;
   height: 100dvh;
 }
+.profile {
+  position: relative;
+}
+.profile:hover  .dropdown{
+      display: flex;
+
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  color: red;
+}
