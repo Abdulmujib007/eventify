@@ -33,7 +33,7 @@ function Navbar() {
                     Login
                   </button>
                   <div className="h-full flex items-center">
-                  <button className="px-5 py-2.5 bg-tifyYellow rounded-[10px] text-black">
+                  <button className="px-5 py-2 bg-tifyYellow rounded-[10px] text-black">
                     Sign up
                   </button>
                   </div>
