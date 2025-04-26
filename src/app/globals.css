@@ -58,3 +58,9 @@ body {
   background-size: cover;
   background-blend-mode:soft-light;
 }
+.cancel-img {
+  display: none;
+}
+.parentEl:has(input:focus) .cancel-img {
+  display: block;
+}
