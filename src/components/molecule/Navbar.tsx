@@ -66,7 +66,7 @@ function Navbar() {
               <div className="dropdown font-medium text-xl ">
                 <Link
                   className=" w-full py-5 pl-5 hover:bg-gray-300 "
-                  href={""}
+                  href={"/interest"}
                 >
                   Interests
                 </Link>
