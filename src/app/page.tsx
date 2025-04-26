@@ -1,7 +1,10 @@
+import Hero from "@/components/molecule/Hero"
 
 function page() {
   return (
-    <div>Home page,Lego!!!!!!!!</div>
+    <div>
+      <Hero/>
+    </div>
   )
 }
 

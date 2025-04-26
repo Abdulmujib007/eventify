@@ -8,8 +8,17 @@ import { usePathname } from "next/navigation";
 import ProfileSvg from "../atom/ProfileSVG";
 
 function Navbar() {
+<<<<<<< Updated upstream
   const pathname = usePathname();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+=======
+  const pathname = usePathname()
+  const [isLoggedIn,setIsLoggedIn] = useState(false)
+>>>>>>> Stashed changes
+
+  const handleLogout = () => {
+
+  }
   return (
     <div
       className={`px-[5.56rem] flex justify-between items-end h-[4.2rem] bg-tifyPurple text-[#fff] ${
@@ -62,7 +71,20 @@ function Navbar() {
               <Link href={"/"}>
                 <ProfileSvg width={69} height={59} />
               </Link>
-              <div className="dropdown ">qwerfdsaqsswesdddd</div>
+              <div className="dropdown font-medium text-xl ">
+                <Link className=" w-full py-5 pl-5 hover:bg-gray-300 " href={""}>
+                  Interests
+                </Link>
+                <Link className=" w-full py-5 pl-5 hover:bg-gray-300 " href={""}>
+                  Account Settings
+                </Link>
+                <button
+                  className="w-full py-5 pl-5 hover:bg-gray-300 text-left"
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </button>
+              </div>
             </div>
           </div>
         )}

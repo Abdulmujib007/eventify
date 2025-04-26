@@ -36,10 +36,25 @@ body {
 }
 .profile:hover  .dropdown{
       display: flex;
+      flex-direction: column;
+      /* align-items: center; */
 
 }
 .dropdown {
   display: none;
   position: absolute;
-  color: red;
+  background-color: white;
+  color: black;
+  right: 0;
+  bottom: -12.9rem ;
+  width: 16.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px #1D1D1D;
+}
+.heroBackground {
+  background-image: url('/lee-blanchflower-1dW1vEJLlCQ-unsplash.jpg');
+  background-color: #2B293D;
+  background-position:center -14rem;
+  background-size: cover;
+  background-blend-mode:soft-light;
 }
