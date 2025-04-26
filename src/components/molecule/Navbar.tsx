@@ -5,20 +5,12 @@ import NavLink from "../atom/NavLink";
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ProfileSvg from "../atom/ProfileSVG";
+import ProfileSvg from "../atom/ProfileSvg";
 
 function Navbar() {
-<<<<<<< Updated upstream
   const pathname = usePathname();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-=======
-  const pathname = usePathname()
-  const [isLoggedIn,setIsLoggedIn] = useState(false)
->>>>>>> Stashed changes
-
-  const handleLogout = () => {
-
-  }
+  const handleLogout = () => {};
   return (
     <div
       className={`px-[5.56rem] flex justify-between items-end h-[4.2rem] bg-tifyPurple text-[#fff] ${
@@ -72,10 +64,16 @@ function Navbar() {
                 <ProfileSvg width={69} height={59} />
               </Link>
               <div className="dropdown font-medium text-xl ">
-                <Link className=" w-full py-5 pl-5 hover:bg-gray-300 " href={""}>
+                <Link
+                  className=" w-full py-5 pl-5 hover:bg-gray-300 "
+                  href={""}
+                >
                   Interests
                 </Link>
-                <Link className=" w-full py-5 pl-5 hover:bg-gray-300 " href={""}>
+                <Link
+                  className=" w-full py-5 pl-5 hover:bg-gray-300 "
+                  href={""}
+                >
                   Account Settings
                 </Link>
                 <button
