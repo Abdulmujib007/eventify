@@ -1,8 +1,9 @@
-
 function page() {
   return (
-    <div>Events page</div>
-  )
+    <div>
+      <p></p>
+    </div>
+  );
 }
 
-export default page
+export default page;

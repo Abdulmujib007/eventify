@@ -1,16 +1,15 @@
-'use client'
+"use client";
 
-import Image from "next/image"
-import NavLink from "../atom/NavLink"
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import ProfileSvg from "../atom/ProfileSVG"
-
+import Image from "next/image";
+import NavLink from "../atom/NavLink";
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import ProfileSvg from "../atom/ProfileSVG";
 
 function Navbar() {
-  const pathname = usePathname()
-  const [isLoggedIn,setIsLoggedIn] = useState(false)
+  const pathname = usePathname();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div
       className={`px-[5.56rem] flex justify-between items-end h-[4.2rem] bg-tifyPurple text-[#fff] ${
@@ -51,7 +50,7 @@ function Navbar() {
                 height={20}
               />
             </Link>
-            <Link href={"/"}>
+            <Link href={"/interested"}>
               <Image
                 src={"/Interested Button.svg"}
                 alt="ticket-button"
@@ -61,11 +60,9 @@ function Navbar() {
             </Link>
             <div className="profile ">
               <Link href={"/"}>
-               <ProfileSvg width={69} height={59} />
+                <ProfileSvg width={69} height={59} />
               </Link>
-              <div className="dropdown ">
-                qwerfdsaqsswesdddd  
-              </div>
+              <div className="dropdown ">qwerfdsaqsswesdddd</div>
             </div>
           </div>
         )}
@@ -74,4 +71,4 @@ function Navbar() {
   );
 }
 
-export default Navbar
+export default Navbar;
