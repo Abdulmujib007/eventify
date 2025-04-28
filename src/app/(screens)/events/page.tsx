@@ -1,4 +1,4 @@
-function page() {
+function EventPage() {
   return (
     <div>
       <p></p>
@@ -6,4 +6,4 @@ function page() {
   );
 }
 
-export default page;
+export default EventPage;

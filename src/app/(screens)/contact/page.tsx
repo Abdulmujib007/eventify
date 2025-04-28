@@ -1,5 +1,5 @@
 
-function page() {
+function ContactPage() {
   return (
     <div>
       Contact page
@@ -19,4 +19,4 @@ function page() {
   );
 }
 
-export default page
+export default ContactPage
