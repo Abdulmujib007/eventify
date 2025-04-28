@@ -1,12 +1,12 @@
 import AppButton from "@/components/atom/AppButton";
-import CategoryHeader from "@/components/atom/SubHeader";
+import SubHeader from "@/components/atom/SubHeader";
 import CategoryType from "@/components/molecule/CategoryType";
 import { titleData } from "@/data";
 
 const InterestPage = () => {
   return (
     <div>
-      <CategoryHeader title="Share your interests with us" />
+      <SubHeader title="Share your interests with us" />
       <div className="px-[6.25rem]">
         <p className="text-[1.5rem] mb-[1.875rem]">
           Choose your interests below to get personalized event suggestions.

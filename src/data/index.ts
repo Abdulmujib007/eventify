@@ -77,3 +77,72 @@ export const titleData = [
     title4: "Cruise Vacations",
   },
 ];
+
+export const popularEventData = [
+  {
+    img:'/Image (6).svg',
+    location:'Lakeside Camping at Pawna',
+    month:'NOV',
+    day:'25-26',
+    title:'Adventure Geek - Explore the Unexplored, Mumbai',
+    time:'8:30 AM - 7:30 PM',
+    price:'INR 1,400',
+    fav:'14 interested',
+    date:'tomorrow'
+  },
+  {
+     img:'/Image (7).svg',
+    location:'Sound Of Christmas  2023',
+    month:'DEC',
+    day:'02',
+    title:'Bal Gandharva Rang Mandir, Mumbai',
+    time:'6:30 PM - 9:30 PM',
+    price:'INR 499',
+    fav:'16 interested',
+    date:'today'
+  },
+  {
+    img:'/Image (8).svg',
+    location:'Meet the Royal College of Art in Mumbai 2023',
+    month:'DEC',
+    day:'02',
+    title:'Sofitel Mumbai BKC, Mumbai',
+    time:'10 AM - 5 PM',
+    price:'FREE',
+    fav:'0 interested',
+    date:'weekend'
+  },
+  {
+    img:'/Image (9).svg',
+    location:'Global Engineering Education Expo 2023',
+    month:'DEC',
+    day:'03',
+    title:'The St. Regis, Mumbai',
+    time:'10 AM - 2 PM',
+    price:'FREE',
+    fav:'48 interested',
+    date:'free'
+  },
+  {
+    img:'/Image (10).svg',
+    location:'Cricket Business Meetup',
+    month:'DEC',
+    day:'08',
+    title:'Play The Turf, Malad, Mumbai',
+    time:'6:30 PM - 9:30 PM',
+    price:'INR 399',
+    fav:'0 interested',
+    date:'today'
+  },  
+  {
+    img:'/Image (11).svg',
+    location:'Valentines Day Sail on a Yacht in Mumbai',
+    month:'FEB',
+    day:'14',
+    title:'Mumbai',
+    time:'7 AM - 8 PM',
+    price:'INR 2,999',
+    fav:'160 interested',
+    date:'tomorrow'
+  }
+]

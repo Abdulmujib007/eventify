@@ -64,3 +64,7 @@ body {
 .parentEl:has(input:focus) .cancel-img {
   display: block;
 }
+.detailShadow:hover {
+  box-shadow: 0 3px 10px 0 #0D0D0D ;
+  border-radius: 10px;
+}
