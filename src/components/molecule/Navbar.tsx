@@ -17,7 +17,7 @@ function Navbar() {
         pathname === "/login" || pathname === "/signup" ? "hidden" : "flex"
       } `}
     >
-      <section className="flex">
+      <section onClick={() => setIsLoggedIn(true)} className="flex">
         <Image src={"/ticket.svg"} alt="ticket-img" width={65} height={45} />
         <p className="text-[2.67rem] text-tifyYellow font-bold font-sans">
           Eventify
@@ -30,11 +30,14 @@ function Navbar() {
             <Link href={"/"}>
               <span className="p-0">Create Event</span>
             </Link>
-            <button onClick={() => setIsLoggedIn(true)}>Login</button>
+            <Link href={"/login"}>Login</Link>
             <div className="h-full flex items-center">
-              <button className="px-5 py-2 bg-tifyYellow rounded-[10px] text-black">
+              <Link
+                href={"/signup"}
+                className="px-5 py-2 bg-tifyYellow rounded-[10px] text-black"
+              >
                 Sign up
-              </button>
+              </Link>
             </div>
           </div>
         )}
