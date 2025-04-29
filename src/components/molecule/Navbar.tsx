@@ -2,22 +2,32 @@
 
 import Image from "next/image";
 import NavLink from "../atom/NavLink";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import ProfileSvg from "../atom/ProfileSvg";
 
 function Navbar() {
+  const router = useRouter();
   const pathname = usePathname();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const handleLogout = () => {};
+  const params = useSearchParams();
+
+  useEffect(() => {
+    const loggedIn = params.get("loggedIn");
+    setIsLoggedIn(Boolean(loggedIn));
+  }, [params]);
+
+  const handleLogout = () => {
+    router.push(`/login?loggedIn=${false}`);
+  };
   return (
     <div
       className={`px-[5.56rem] flex justify-between items-end h-[4.2rem] bg-tifyPurple text-[#fff] ${
         pathname === "/login" || pathname === "/signup" ? "hidden" : "flex"
       } `}
     >
-      <section onClick={() => setIsLoggedIn(true)} className="flex">
+      <section className="flex">
         <Image src={"/ticket.svg"} alt="ticket-img" width={65} height={45} />
         <p className="text-[2.67rem] text-tifyYellow font-bold font-sans">
           Eventify
@@ -27,7 +37,7 @@ function Navbar() {
       <section className="h-full">
         {!isLoggedIn && (
           <div className="text-lg font-medium flex h-full gap-7 items-center">
-            <Link href={"/"}>
+            <Link href={"/login"}>
               <span className="p-0">Create Event</span>
             </Link>
             <Link href={"/login"}>Login</Link>
@@ -43,8 +53,8 @@ function Navbar() {
         )}
         {isLoggedIn && (
           <div className="text-lg font-medium flex h-full gap-7 items-center">
-            <Link href={"/"}>
-              <span className="p-0">Create Event</span>
+            <Link href={`/events/${1}`}>
+              <span className="p-0 cursor-pointer">Create Event</span>
             </Link>
             <Link href={"/"}>
               <Image
@@ -63,9 +73,9 @@ function Navbar() {
               />
             </Link>
             <div className="profile ">
-              <Link href={"/"}>
+              <div>
                 <ProfileSvg width={69} height={59} />
-              </Link>
+              </div>
               <div className="dropdown font-medium text-xl ">
                 <Link
                   className=" w-full py-5 pl-5 hover:bg-gray-300 "
@@ -80,7 +90,7 @@ function Navbar() {
                   Account Settings
                 </Link>
                 <button
-                  className="w-full py-5 pl-5 hover:bg-gray-300 text-left"
+                  className="w-full py-5 pl-5 hover:bg-gray-300 text-left cursor-pointer"
                   onClick={handleLogout}
                 >
                   Log Out

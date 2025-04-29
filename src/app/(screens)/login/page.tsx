@@ -8,7 +8,7 @@ const LoginPage = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate.push("/");
+    navigate.push(`/?loggedIn=${'true'}`);
   };
 
   const handleBackBtn = () => {
