@@ -9,7 +9,7 @@ interface LoginSignupProp {
   header: "Create Account" | "Login";
   footer: "Sign up" | "Log In";
   linkTo: string;
-  onClick2: (e:React.FormEvent<HTMLInputElement>) => void;
+  onClick2: (e:React.FormEvent) => void;
   backBtnClick : () => void;
 }
 
@@ -71,7 +71,7 @@ const LoginSignupFramework = ({header,footer,linkTo,onClick2,backBtnClick} : Log
               <span className="text-2xl text-[#A3A3A3]">OR</span>
               <div className="border-b-[1px] border-b-[#6F6F6F] w-[44.5%]"></div>
             </section>
-            <form className="flex flex-col gap-[1.875rem]">
+            <form onSubmit={onClick2} className="flex flex-col gap-[1.875rem]">
               {header === "Create Account" && (
                 <Input
                   headerText="Full Name"
@@ -92,7 +92,6 @@ const LoginSignupFramework = ({header,footer,linkTo,onClick2,backBtnClick} : Log
               />
               <button
                 // href={linkTo}
-                onClick={onClick2}
                 className="font-bold text-2xl text-white bg-tifyPurple rounded-2xl py-4 cursor-pointer text-center hover:bg-[#444256]"
               >
                 {header}
