@@ -53,7 +53,7 @@ function Navbar() {
         )}
         {isLoggedIn && (
           <div className="text-lg font-medium flex h-full gap-7 items-center">
-            <Link href={`/events/${1}`}>
+            <Link href={`/create-event`}>
               <span className="p-0 cursor-pointer">Create Event</span>
             </Link>
             <Link href={"/"}>
