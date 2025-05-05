@@ -3,12 +3,10 @@ import { useState, useEffect } from "react";
 import CategorySelect from "@/components/atom/CategorySelect";
 import Categories from "@/components/molecule/Categories";
 import Hero from "@/components/molecule/Hero";
-import { popularEventData } from "@/data";
 import EventDetails from "@/components/molecule/EventDetails";
 import SeeMoreBtn from "@/components/atom/SeeMoreBtn";
 import { DataProp } from "@/utils/types";
-import { onlineEventData } from "@/data";
-import { trendingEventData } from "@/data";
+import { allHomeEventData } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,6 +14,10 @@ function HomePage() {
   const [filerWith, setFilterWith] = useState("");
   const [datatoBeMap, setDataToMap] = useState<DataProp[]>([]);
   const [isActiveButton, setIsActiveButton] = useState<number>(1);
+
+  const popularEventData = allHomeEventData.slice(0, 6);
+  const onlineEventData = allHomeEventData.slice(6, 12);
+  const trendingEventData = allHomeEventData.slice(12, allHomeEventData.length);
 
   useEffect(() => {
     setDataToMap(popularEventData);

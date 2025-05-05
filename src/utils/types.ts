@@ -1,5 +1,5 @@
 export interface DataProp {
-    id:number
+    id:number;
     img: string;
     location: string;
     month: string;

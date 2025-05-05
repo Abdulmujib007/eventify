@@ -359,11 +359,7 @@ function CreateNewEvent({handleBtnClick} : CreateEventProp) {
           />
         </div>
       </section>
-      <section className="mt-[29rem] mr-[9.375rem] flex w-full justify-end items-center gap-x-8">
-        {/* <CreateEvenBackBtn
-          text="Go back to Edit Event"
-          onClick={handleBackText}
-        /> */}
+      <section className="mt-[29rem] flex w-full justify-end items-center gap-x-8">
         <CreateEventBtn text="Save & Continue" onClick={handleBtnClick} />
       </section>
     </div>

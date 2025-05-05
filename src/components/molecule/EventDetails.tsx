@@ -11,6 +11,7 @@ interface EVentProp {
   time: string;
   price: string;
   fav: string;
+  id:number
 }
 
 function EventDetails({
@@ -22,9 +23,10 @@ function EventDetails({
   time,
   price,
   fav,
+  id
 }: EVentProp) {
   return (
-    <Link href={''} className="flex flex-col w-[28rem] gap-5 pb-14 detailShadow">
+    <Link href={`/events/${id}`} className="flex flex-col w-[28rem] gap-5 pb-14 detailShadow">
       <Image className="rounded-t-[10px]" src={img} alt="picture" width={512} height={254} />
       <main className="flex px-5 gap-5 ">
         <section className="'flex flex-col min-w-max  gap-1 mt-1">
