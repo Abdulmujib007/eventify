@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@layer base {
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -11,11 +21,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-tifyPurple:#2B293D;
-  --color-tifyYellow:#FFE047;
-  --color-footerText:#A9A9A9
+  --color-tifyPurple: #2b293d;
+  --color-tifyYellow: #ffe047;
+  --color-footerText: #a9a9a9;
 }
-
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -24,28 +33,24 @@
 } */
 
 body {
-
   /* background: var(--background); */
   /* color: var(--foreground); */
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
   width: 100dvw;
   height: 100dvh;
 }
-.main-style{
+.main-style {
   overflow-x: hidden;
 }
 .profile {
   position: relative;
 }
-.profile:hover  .dropdown{
-      display: flex;
-      flex-direction: column;
-      /* align-items: center; */
-
+.profile:hover .dropdown {
+  display: flex;
+  flex-direction: column;
 }
 .dropdown {
   display: none;
@@ -53,17 +58,17 @@ body {
   background-color: white;
   color: black;
   right: 0;
-  bottom: -12.9rem ;
+  bottom: -12.9rem;
   width: 16.5rem;
   border-radius: 10px;
-  box-shadow: 0px 2px 8px #1D1D1D;
+  box-shadow: 0px 2px 8px #1d1d1d;
 }
 .heroBackground {
-  background-image: url('/lee-blanchflower-1dW1vEJLlCQ-unsplash.jpg');
-  background-color: #2B293D;
-  background-position:center -14rem;
+  background-image: url("/lee-blanchflower-1dW1vEJLlCQ-unsplash.jpg");
+  background-color: #2b293d;
+  background-position: center -14rem;
   background-size: cover;
-  background-blend-mode:soft-light;
+  background-blend-mode: soft-light;
 }
 .cancel-img {
   display: none;
@@ -72,18 +77,31 @@ body {
   display: block;
 }
 .detailShadow:hover {
-  box-shadow: 0 3px 10px 0 #0D0D0D ;
+  box-shadow: 0 3px 10px 0 #0d0d0d;
   border-radius: 10px;
 }
 .getStarted {
-  background-image: url('/Personalized\ Recommendations.png');
+  background-image: url("/Personalized\ Recommendations.png");
 }
 .createEventImage {
-  background-image: url('/Create\ Event\ CTA.png');
+  background-image: url("/Create\ Event\ CTA.png");
 }
 .flow-section {
   overflow-x: auto;
   margin-bottom: 6.25rem;
   padding-left: 4.35rem;
   padding-right: 4.35rem;
+}
+
+.slanted-button {
+  background-color: #2b293d;
+  /* background-color: #ffe047; */
+  color: white;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  margin-top: 2.5rem;
+  cursor: pointer;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
 }
