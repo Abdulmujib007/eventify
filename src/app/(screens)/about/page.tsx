@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
-// import Image from "next/image"
+
 import { useRouter } from "next/navigation";
 
 function AboutPage() {
@@ -11,7 +12,7 @@ function AboutPage() {
   return (
     <div className=" m-[10rem] h-screen  flex justify-center gap-24 items-center">
       <section className="relative flex items-center justify-center w-[50%] h-full">
-        <img src="/Images.png" className="w-full h-full" alt="" />
+        <img src="/undraw_festivities_q090.png" className="w-full h-full" alt="" />
       </section>
       <section className="w-[50%] h-full  ">
         <h1 className="text-tifyPurple text-xl font-semibold">A BIT</h1>

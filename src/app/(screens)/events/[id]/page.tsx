@@ -186,11 +186,11 @@ function EachEventPage() {
           </main>
         </div>
       </main>
-      <header className="font-bold text-4xl mb-12 ml-[9.35rem]">
+      <header className="font-bold text-4xl mb-12 ml-[7rem]">
         Other events you may like
       </header>
       <section className="flow-section pb-10">
-        <div className="flex gap-x-10 mb-1 w-max ">
+        <div className="flex gap-x-10 w-max ml-10 ">
           {allHomeEventData.map((data) => (
             <div key={data.id}>
               <EventDetails key={data.id} {...data} />

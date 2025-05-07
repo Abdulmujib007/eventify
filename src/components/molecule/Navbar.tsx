@@ -56,7 +56,7 @@ function Navbar() {
             <Link href={`/create-event`}>
               <span className="p-0 cursor-pointer">Create Event</span>
             </Link>
-            <Link href={"/"}>
+            <Link href={"/tickets"}>
               <Image
                 src={"/Ticket Button.svg"}
                 alt="ticket-button"
