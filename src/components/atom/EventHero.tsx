@@ -1,9 +1,10 @@
 "use client";
+import React from "react";
 
 import Image from "next/image";
 import { useState } from "react";
 
-function Hero() {
+const EventHero = () => {
   const [location, setLocation] = useState(false);
   const [searchText, setSearchText] = useState("");
 
@@ -15,14 +16,10 @@ function Hero() {
     console.log("button pressed", { searchText });
   };
   return (
-    <div className="heroBackground  h-[36rem] flex items-start justify-center flex-col  gap-14 w-full">
-      <section className="pl-[13rem] leading-[4.4rem] text-[#fff]  text-5xl font-bold">
-        <p>Dont miss out!</p>
-        <p>
-          Explore the <span className="text-tifyYellow">vibrant events</span>{" "}
-          happening locally and globally.{" "}
-        </p>
-      </section>
+    <div>
+      <p className="text-center font-bold text-[3rem] text-white mb-[3.75rem]">
+        Explore a world of events. Find what excites you!
+      </p>
       <section className="w-full flex justify-center ">
         <form className="bg-white flex border-r-[2px] border-r-[#BBBBBB] w-[45%] justify-between px-6 py-4.5 rounded-l-lg text-xl parentEl">
           <div className="flex gap-6 w-full">
@@ -33,8 +30,8 @@ function Hero() {
               height={25}
             />
             <input
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
               className="outline-none w-[80%] search"
               placeholder="Search Events, Categories, Location,..."
               type="text"
@@ -61,7 +58,10 @@ function Hero() {
                 width={22}
                 height={30}
               />
-              <input className="font-medium text-xl outline-none" placeholder="Mumbai" />
+              <input
+                className="font-medium text-xl outline-none"
+                placeholder="Mumbai"
+              />
             </div>
             {!location && (
               <Image
@@ -106,6 +106,6 @@ function Hero() {
       </section>
     </div>
   );
-}
+};
 
-export default Hero;
+export default EventHero;
