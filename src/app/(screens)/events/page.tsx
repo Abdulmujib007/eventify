@@ -153,7 +153,19 @@ function EventPage() {
           </div>
           <div className="mt-[3.125rem] grid grid-cols-2 gap-x-6 gap-y-[3.8125rem] ml-[3.125rem] mb-[6.5625rem]">
             {eventData.map((event, index) => (
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
               <EventCard key={index} {...event} />
+=======
+              <div>
+                <EventCard key={index} {...event} />
+              </div>
+>>>>>>> Stashed changes
+=======
+              <div>
+                <EventCard key={index} {...event} />
+              </div>
+>>>>>>> Stashed changes
             ))}
           </div>
         </div>
