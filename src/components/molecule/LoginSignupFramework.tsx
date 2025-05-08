@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 import Input from "../atom/Input";
 import Link from "next/link";
@@ -9,11 +7,31 @@ interface LoginSignupProp {
   header: "Create Account" | "Login";
   footer: "Sign up" | "Log In";
   linkTo: string;
-  onClick2: (e:React.FormEvent) => void;
-  backBtnClick : () => void;
+  onClick2: (e: React.FormEvent) => void;
+  backBtnClick: () => void;
+  value1?: string;
+  value2: string;
+  value3: string;
+  onChange1?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange2: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange3: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  loading : boolean
 }
 
-const LoginSignupFramework = ({header,footer,linkTo,onClick2,backBtnClick} : LoginSignupProp) => {
+const LoginSignupFramework = ({
+  header,
+  footer,
+  linkTo,
+  onClick2,
+  backBtnClick,
+  value1,
+  value2,
+  value3,
+  onChange2,
+  onChange3,
+  onChange1,
+  loading
+}: LoginSignupProp) => {
   return (
     <div className="bg-tifyPurple w-full h-full flex">
       <section className="w-[40%]">
@@ -77,6 +95,8 @@ const LoginSignupFramework = ({header,footer,linkTo,onClick2,backBtnClick} : Log
                   headerText="Full Name"
                   placeholder="Enter your full name"
                   type="text"
+                  value={value1}
+                  onChange={onChange1}
                 />
               )}
 
@@ -84,17 +104,23 @@ const LoginSignupFramework = ({header,footer,linkTo,onClick2,backBtnClick} : Log
                 headerText="E-mail Address"
                 placeholder="Enter your e-mail"
                 type="email"
+                onChange={onChange2}
+                value={value2}
               />
               <Input
                 headerText="Password"
                 placeholder="Enter password"
                 type="password"
+                onChange={onChange3}
+                value={value3}
               />
               <button
                 // href={linkTo}
                 className="font-bold text-2xl text-white bg-tifyPurple rounded-2xl py-4 cursor-pointer text-center hover:bg-[#444256]"
               >
-                {header}
+                {
+                  loading ? 'Loading...' : header
+                }
               </button>
               <div className="text-xl text-[#636363] flex gap-2">
                 <p>
@@ -102,9 +128,10 @@ const LoginSignupFramework = ({header,footer,linkTo,onClick2,backBtnClick} : Log
                     ? "Already have an account?"
                     : "Don’t have an account?"}
                 </p>
-                <Link href={linkTo}
+                <Link
+                  href={linkTo}
                   className="cursor-pointer hover:border-b-[1px] hover:border-b-tifyPurple"
-                //   onClick={onClick2}
+                  //   onClick={onClick2}
                 >
                   {footer}
                 </Link>
