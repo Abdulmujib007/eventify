@@ -4,12 +4,15 @@ import AccountSettingsButton from "../atom/AccountSettingsButton";
 
 const Password = () => {
   return (
-    <div>
+    <div className="mx-[4.375rem]">
       <AccountSettingsHeader title="set password" />
-      <p className="mt-[4.375rem] text-2xl mx-[4.375rem] mb-10">
+
+      <p className="mt-[4.375rem] text-2xl  mb-10 ">
         A password has not been set for your account.
       </p>
-      <AccountSettingsButton />
+      <div className="mb-[35.3125rem]">
+        <AccountSettingsButton text="Set Password" />
+      </div>
     </div>
   );
 };
