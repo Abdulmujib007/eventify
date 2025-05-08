@@ -11,7 +11,7 @@ function EventPage() {
       <div className="bg-[#2B293D] pt-[9.375rem] pb-[7.5rem]">
         <EventHero />
       </div>
-      <div className="px-[6.25rem] mt-[3.75rem] flex ">
+      <div className="px-[4rem] mt-[3.75rem] flex ">
         <div className="border-r-1 border-[#6F6F6F] h-fit pb-[18.1875rem]">
           <p className="font-semibold text-[2rem] mb-[0.625rem]">Filters</p>
           <CheckBoxSection
