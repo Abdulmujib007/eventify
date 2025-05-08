@@ -2,24 +2,20 @@
 
 import Image from "next/image";
 import NavLink from "../atom/NavLink";
-import { useEffect, useState } from "react";
+// import { useEffect,useState } from "react";
 import Link from "next/link";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import ProfileSvg from "../atom/ProfileSvg";
+import { useAuth } from "../../../context/AuthContext";
 
 function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const params = useSearchParams();
-
-  useEffect(() => {
-    const loggedIn = params.get("loggedIn");
-    setIsLoggedIn(Boolean(loggedIn));
-  }, [params]);
+  const { isLoggedIn, logout } = useAuth();
 
   const handleLogout = () => {
-    router.push(`/login?loggedIn=${false}`);
+    logout();
+    router.push("/");
   };
   return (
     <div

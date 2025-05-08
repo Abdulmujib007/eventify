@@ -7,9 +7,11 @@ interface InputProps {
     type: 'password' | 'text' | 'email'
     placeholder:string;
     headerText:string;
+    onChange? : (e:React.ChangeEvent<HTMLInputElement>) => void;
+    value ?: string;
 }
 
-function Input({type,placeholder,headerText}:InputProps ) {
+function Input({type,placeholder,headerText,onChange,value}:InputProps ) {
     const [focus,setFocus] = useState(false)
     const [passwordShow,setPasswordShow] = useState(false)
 
@@ -26,8 +28,11 @@ function Input({type,placeholder,headerText}:InputProps ) {
         }  w-full rounded-xl px-6 py-3.5 flex justify-between items-center`}
       >
         <input
+          required
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
+          value={value}
+          onChange={onChange}
           type={`${passwordShow ? "password" : "text"}`}
           placeholder={placeholder}
           className="w-full outline-none text-lg "
