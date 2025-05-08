@@ -147,7 +147,7 @@ const CheckBoxSection: React.FC<CheckBoxSectionProps> = ({
 
   return (
     <div
-      className={`pb-[3.4375rem] mr-[3.75rem] border-b-1 border-[#6F6F6F] ${className} `}
+      className={`pb-[3.4375rem]  w-[18.375rem] mr-[3rem] border-b-1 border-[#6F6F6F] ${className} `}
     >
       <p className="mb-[0.75rem] text-[1.5rem] font-semibold mt-[3.125rem]">
         {title}

@@ -81,7 +81,7 @@ function Navbar() {
                 </Link>
                 <Link
                   className=" w-full py-5 pl-5 hover:bg-gray-300 "
-                  href={""}
+                  href={"/account-settings"}
                 >
                   Account Settings
                 </Link>
