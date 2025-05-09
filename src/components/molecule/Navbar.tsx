@@ -11,7 +11,9 @@ import { useAuth } from "../../../context/AuthContext";
 function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, logout} = useAuth();
+
+
 
   const handleLogout = () => {
     logout();
@@ -32,7 +34,7 @@ function Navbar() {
       <NavLink />
       <section className="h-full">
         {!isLoggedIn && (
-          <div className="text-lg font-medium flex h-full gap-7 items-center">
+          <div className={` text-lg font-medium flex h-full gap-7 items-center`}>
             <Link href={"/login"}>
               <span className="p-0">Create Event</span>
             </Link>
@@ -46,9 +48,9 @@ function Navbar() {
               </Link>
             </div>
           </div>
-        )}
+         )} 
         {isLoggedIn && (
-          <div className="text-lg font-medium flex h-full gap-7 items-center">
+          <div className={` ${isLoggedIn ? 'block' : 'hidden'} text-lg font-medium flex h-full gap-7 items-center`}>
             <Link href={`/create-event`}>
               <span className="p-0 cursor-pointer">Create Event</span>
             </Link>
@@ -94,7 +96,7 @@ function Navbar() {
               </div>
             </div>
           </div>
-        )}
+         )}
       </section>
     </div>
   );

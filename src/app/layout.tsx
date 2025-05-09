@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/molecule/Navbar";
 import Footer from "@/components/molecule/Footer";
 import { AuthProvider } from "../../context/AuthContext";
+import AuthGuard from "@/components/organism/AuthGuard";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,12 +33,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col `}
       >
         <AuthProvider>
-          <Navbar />
-          <main className="flex flex-col flex-grow overflow-y-auto main-style">
-            {children}
+          <AuthGuard>
+            <Navbar />
+            <main className="flex flex-col flex-grow overflow-y-auto main-style">
+              {children}
 
-            <Footer />
-          </main>
+              <Footer />
+            </main>
+          </AuthGuard>
         </AuthProvider>
       </body>
     </html>

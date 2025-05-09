@@ -39,6 +39,7 @@ const LoginPage = () => {
       console.log(data);
       if (data) {
         login()
+        
         navigate.push(`/`);
       }
     } catch (err: unknown) {

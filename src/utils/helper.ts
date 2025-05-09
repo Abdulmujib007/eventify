@@ -14,7 +14,7 @@ export const userLogin = async(userInfo : {password:string;email:string;} ) => {
     return response.data
 }
 
-export const signup = async (newUserInfo : SignupProp ) => {
+export const userSignup = async (newUserInfo : SignupProp ) => {
     const response = await axios.post(`${baseUrl}/signup`,newUserInfo)
     return response.data
 }
