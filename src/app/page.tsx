@@ -126,7 +126,7 @@ function HomePage() {
         </p>
         <Link
           className="mx-auto w-fit flex gap-4 items-center bg-tifyPurple rounded-2xl py-[1.25rem] px-9 hover:bg-[#413F53] cursor-pointer "
-          href={""}
+          href={"/interest"}
         >
           <span className="text-3xl font-semibold text-[#FFE047]">
             Get Started
@@ -157,7 +157,7 @@ function HomePage() {
             get listed on Eventify
           </span>
         </div>
-        <button className="min-w-max items-center h-fit py-4 flex gap-2.5  px-11 bg-[#FFE047] rounded-2xl hover:bg-[#EBCC33] cursor-pointer">
+        <Link href={'/create-event'} className="min-w-max items-center h-fit py-4 flex gap-2.5  px-11 bg-[#FFE047] rounded-2xl hover:bg-[#EBCC33] cursor-pointer">
           <Image
             src={"/Vector (4).svg"}
             alt="date-icon"
@@ -167,7 +167,7 @@ function HomePage() {
           <span className="font-semibold text-2xl text-[#2B293D]">
             Create Event
           </span>
-        </button>
+        </Link>
       </section>
       <section className="bg-[#FFE047] py-14 px-[12rem] flex gap-[5rem] items-center">
         <div>

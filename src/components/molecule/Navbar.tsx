@@ -6,6 +6,7 @@ import NavLink from "../atom/NavLink";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import ProfileSvg from "../atom/ProfileSvg";
+import ProfileSvg2 from "../atom/ProfileSvg2";
 import { useAuth } from "../../../context/AuthContext";
 
 function Navbar() {
@@ -34,11 +35,15 @@ function Navbar() {
       <NavLink />
       <section className="h-full">
         {!isLoggedIn && (
-          <div className={` text-lg font-medium flex h-full gap-7 items-center`}>
+          <div
+            className={` text-lg font-medium flex h-full gap-7 items-center`}
+          >
             <Link href={"/login"}>
-              <span className="p-0">Create Event</span>
+              <span className="p-0 hover:text-tifyYellow">Create Event</span>
             </Link>
-            <Link href={"/login"}>Login</Link>
+            <Link className="hover:text-tifyYellow" href={"/login"}>
+              Login
+            </Link>
             <div className="h-full flex items-center">
               <Link
                 href={"/signup"}
@@ -48,31 +53,60 @@ function Navbar() {
               </Link>
             </div>
           </div>
-         )} 
+        )}
         {isLoggedIn && (
-          <div className={` ${isLoggedIn ? 'block' : 'hidden'} text-lg font-medium flex h-full gap-7 items-center`}>
+          <div
+            className={` ${
+              isLoggedIn ? "block" : "hidden"
+            } text-lg font-medium flex h-full gap-7 items-center`}
+          >
             <Link href={`/create-event`}>
-              <span className="p-0 cursor-pointer">Create Event</span>
+              <span
+                className={`p-0 hover:text-tifyYellow cursor-pointer ${
+                  pathname === "/create-event"
+                    ? "text-tifyYellow"
+                    : "text-white"
+                } `}
+              >
+                Create Event
+              </span>
             </Link>
             <Link href={"/tickets"}>
               <Image
+                className={`${pathname === "/tickets" ? "hidden" : "block"}`}
                 src={"/Ticket Button.svg"}
                 alt="ticket-button"
+                width={50}
+                height={20}
+              />
+              <Image
+                className={`${pathname === "/tickets" ? "block" : "hidden"}`}
+                src={"/Property 1=Hover.svg"}
+                alt="ticket-icon"
                 width={50}
                 height={20}
               />
             </Link>
             <Link href={"/interested"}>
               <Image
+                className={`${pathname === "/interested" ? "hidden" : "block"}`}
                 src={"/Interested Button.svg"}
                 alt="ticket-button"
                 width={74}
                 height={20}
               />
+              <Image
+                className={`${pathname === "/interested" ? "block" : "hidden"}`}
+                src={"/Property 1=Hover (1).svg"}
+                alt="ticket-button"
+                width={74}
+                height={20}
+              />
             </Link>
-            <div className="profile ">
-              <div>
-                <ProfileSvg width={69} height={59} />
+            <div className="profile z-50 ">
+              <div className="profile-icon">
+                <ProfileSvg className="icon1" width={69} height={59} />
+                <ProfileSvg2 className="icon2" width={69} height={59} />
               </div>
               <div className="dropdown font-medium text-xl ">
                 <Link
@@ -96,7 +130,7 @@ function Navbar() {
               </div>
             </div>
           </div>
-         )}
+        )}
       </section>
     </div>
   );

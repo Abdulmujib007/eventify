@@ -52,6 +52,19 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.icon1{
+  display: block;
+}
+.icon2{
+  display:none;
+}
+.profile:hover .profile-icon .icon1{
+  display: none;
+}
+.profile:hover .profile-icon .icon2{
+  display: block;
+}
 .dropdown {
   display: none;
   position: absolute;
@@ -77,7 +90,7 @@ body {
   display: block;
 }
 .detailShadow:hover {
-  box-shadow: 0 3px 10px 0 #0d0d0d;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) ;
   border-radius: 10px;
 }
 .getStarted {

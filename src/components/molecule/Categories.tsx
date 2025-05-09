@@ -4,8 +4,9 @@ import React from 'react'
 
 function Categories({src,text} : { src: string,text:string } ) {
   return (
-    <Link href={''} className='flex flex-col gap-7 w-[12rem] '>
+    <Link href={'/events'} className='flex flex-col gap-7 w-[12rem] '>
         <Image
+            className=''
             src={src}
             alt='categories'
             width={170}
