@@ -8,7 +8,7 @@ import { eventData } from "@/data";
 function EventPage() {
   return (
     <div>
-      <div className="bg-[#2B293D] pt-[9.375rem] pb-[7.5rem]">
+      <div className="event-hero pt-[9.375rem] pb-[7.5rem]">
         <EventHero />
       </div>
       <div className="px-[4rem] mt-[3.75rem] flex ">

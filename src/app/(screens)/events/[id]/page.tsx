@@ -1,20 +1,133 @@
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 /* eslint-disable @next/next/no-img-element */
-'use client'
+"use client";
 
-import EventDetails from "@/components/molecule/EventDetails"
-import { allHomeEventData } from "@/data"
-import Image from "next/image"
-import { useParams,useRouter } from "next/navigation"
+import DetailsModalContent from "@/components/molecule/DetailsModalContent";
+import EventDetails from "@/components/molecule/EventDetails";
+import SelectModalContent from "@/components/molecule/SelectModalContent";
+import ShareModalContent from "@/components/molecule/ShareModalContent";
+import SummaryModalContent from "@/components/molecule/SummaryModalContent";
+import GoogleMapLocation from "@/components/organism/GoogleMapLocation";
+import { allHomeEventData } from "@/data";
+import Image from "next/image";
+import { useParams, useRouter } from "next/navigation";
+import { useState } from "react";
+import Modal from "react-modal";
 
 function EachEventPage() {
-    const router = useRouter()
-    const params = useParams()
-    const eventInfo = allHomeEventData.find(data => (
-          data.id === Number(params.id)
-    ))
+  const [fav, setFav] = useState(false);
+  const [modal, setModal] = useState<{
+    isOpen: boolean;
+    content: "share" | "select" | "details" | "summary" | "";
+  }>({
+    isOpen: false,
+    content: "",
+  });
+  const router = useRouter();
+  const params = useParams();
+  const eventInfo = allHomeEventData.find(
+    (data) => data.id === Number(params.id)
+  );
+
+  const handleFav = () => {
+    setFav(!fav);
+  };
+  const handleChangeModalContent = () => {
+    if (modal.content === "select") {
+      setModal({ isOpen: true, content: "details" });
+    } else if (modal.content === "details") {
+      setModal({ isOpen: true, content: "summary" });
+    } else if (modal.content === "summary") {
+      setModal({ isOpen: false, content: "" });
+    }
+  };
+
+  const [quantity, setQuantity] = useState(1);
+  const [price, setPrice] = useState(200);
+
+  const handlePlusQuantity = () => {
+    setQuantity(quantity + 1);
+    setPrice(price + 200);
+  };
+
+  const handleMinusQuantity = () => {
+    if (quantity === 1) {
+      setQuantity(1);
+      setPrice(200);
+      return;
+    }
+    setQuantity(quantity - 1);
+    setPrice(price - 200);
+  };
+  const handleBackBtn = () => {
+    if(modal.content === 'details'){
+      setModal({isOpen:true, content: 'select'})
+    } else if(modal.content === 'summary') {
+      setModal({isOpen:true,content:'details'})
+    }
+  }
+
+  Modal.setAppElement(document.body);
+
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
+  console.log({ apiKey });
   return (
     <div className="">
+      <Modal
+        style={{ overlay: { backgroundColor: "rgba(0, 0, 0, 0.3)" } }}
+        className="w-full h-full  outline-none flex justify-center items-center "
+        isOpen={modal.isOpen}
+      >
+        <main
+          className={`w-[50%] h-[75%] flex ${
+            modal.content === "share" ? "items-center" : "items-start"
+          }  justify-center gap-5`}
+        >
+          <div
+            className={` ${
+              modal.content === "share" ? "w-[70%]" : "w-[90%]"
+            } h-[100%]  `}
+          >
+            <div className="w-full">
+              {modal.content === "share" && <ShareModalContent />}
+              {modal.content === "select" && (
+                <SelectModalContent
+                  handleBtnClick={handleChangeModalContent}
+                  handleMinusQuantity={handleMinusQuantity}
+                  handlePlusQuantity={handlePlusQuantity}
+                  price={price}
+                  quantity={quantity}
+                  text="Proceed"
+                />
+              )}
+              {modal.content === "details" && (
+                <DetailsModalContent
+                  date={`${eventInfo?.time} ${eventInfo?.month} ${eventInfo?.day} `}
+                  title={eventInfo?.location!}
+                  handleBtnClick={handleChangeModalContent}
+                  price={price}
+                  quantity={quantity}
+                  text="Continue to Checkout"
+                  handleBackBtn={handleBackBtn}
+                />
+              )}
+              {modal.content === "summary" && (
+                <SummaryModalContent price={price}  handleBackBtn={handleBackBtn} handleBtnCLick={handleChangeModalContent} />
+              )}
+            </div>
+          </div>
+          <Image
+            onClick={() => setModal({ content: "", isOpen: false })}
+            className={` ${
+              modal.content === "share" ? "mb-40" : ""
+            }  cursor-pointer`}
+            src={"/Close button.svg"}
+            alt="close-icon"
+            width={60}
+            height={30}
+          />
+        </main>
+      </Modal>
       <main className="flex ml-11 mr-[9.35rem] items-start mt-10 mb-24">
         <Image
           onClick={() => router.back()}
@@ -32,24 +145,37 @@ function EachEventPage() {
               alt=""
               width={0}
               height={0}
-              // layout="fill"
-              // objectFit="cover"
               sizes="100wv"
-              style={{ width: "100%", height: "35rem"}}
+              style={{ width: "100%", height: "35rem" }}
             />
           </div>
 
           <main className="flex flex-col gap-y-[5rem] mt-[2.5rem] w-full ">
-            <section className="font-extrabold text-[4.25rem] flex  justify-between items-center w-full ">
+            <section className="font-extrabold text-[4.25rem] flex  justify-between gap-10 pr-5 items-center w-full ">
               <header className="">{eventInfo?.location}</header>
               <div className="flex gap-7 w-fit ">
+                {!fav && (
+                  <Image
+                    onClick={handleFav}
+                    src={"/Star 2.svg"}
+                    alt="star-icon"
+                    width={30}
+                    height={30}
+                  />
+                )}
+                {fav && (
+                  <Image
+                    onClick={handleFav}
+                    src={"/Star 1 (1).svg"}
+                    alt="star-icon"
+                    width={30}
+                    height={30}
+                  />
+                )}
+
                 <Image
-                  src={"/Star 2.svg"}
-                  alt="star-icon"
-                  width={30}
-                  height={30}
-                />
-                <Image
+                  onClick={() => setModal({ content: "share", isOpen: true })}
+                  className="cursor-pointer"
                   src={"/Group 4.svg"}
                   alt="share-icon"
                   width={30}
@@ -80,7 +206,12 @@ function EachEventPage() {
               </div>
               <div className="flex flex-col gap-7">
                 <div className="mb-10 ">
-                  <button className="flex gap-3 py-6 px-16 bg-[#FFE047] rounded-xl items-center cursor-pointer">
+                  <button
+                    onClick={() =>
+                      setModal({ isOpen: true, content: "select" })
+                    }
+                    className="flex gap-3 py-6 px-16 bg-[#FFE047] rounded-xl items-center cursor-pointer"
+                  >
                     <img src="/ion_ticket.svg" className="w-6 h-6" alt="" />
                     <span className="text-3xl font-semibold">Buy Tickets</span>
                   </button>
@@ -104,8 +235,17 @@ function EachEventPage() {
                   {eventInfo?.title}
                 </span>
               </div>
-              <div className="w-full">
-                <img className="" src="/Map.jpg" alt="" />
+              <div className="w-[50%] h-[30rem]">
+                {/* <img className="" src="/Map.jpg" alt="" /> */}
+                <GoogleMapLocation
+                  apiKey={apiKey!}
+                  locationName={`${
+                    eventInfo?.title === "Online"
+                      ? "Ilorin,Nigeria"
+                      : eventInfo?.title
+                  }`}
+                  height="30rem"
+                />
               </div>
             </section>
             <section className="w-full">
@@ -202,4 +342,4 @@ function EachEventPage() {
   );
 }
 
-export default EachEventPage
+export default EachEventPage;

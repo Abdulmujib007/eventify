@@ -41,6 +41,7 @@ body {
   overflow: hidden;
   width: 100dvw;
   height: 100dvh;
+
 }
 .main-style {
   overflow-x: hidden;
@@ -117,4 +118,19 @@ body {
   cursor: pointer;
   clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
   box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+}
+.event-hero {
+  background-color: rgba(43, 41, 61, 0.9);
+}
+.ticket-shadow{
+  box-shadow: 0 -4px 10px 0 rgba(29, 29, 29, 0.15)
+}
+.ticket-summary{
+  background-image: url('/Ticket.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height:10rem;
+  margin-left: 25%;
+  margin-right: 25%;
 }
