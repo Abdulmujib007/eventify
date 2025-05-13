@@ -71,32 +71,53 @@ function Navbar() {
                 Create Event
               </span>
             </Link>
-            <Link href={"/tickets"}>
+            <Link className="nav-link" href={"/tickets"}>
               <Image
-                className={`${pathname === "/tickets" ? "hidden" : "block"}`}
+                className={`${pathname === "/tickets" ? "hidden" : " nav-icon1"}`}
                 src={"/Ticket Button.svg"}
                 alt="ticket-button"
                 width={50}
                 height={20}
               />
               <Image
-                className={`${pathname === "/tickets" ? "block" : "hidden"}`}
+                className={`nav-icon2`}
+                src={"/Property 1=Hover.svg"}
+                alt="ticket-icon"
+                width={50}
+                height={20}
+              />
+
+              <Image
+                className={`${pathname === "/tickets" ? "nav-icon3" : "hidden"}`}
                 src={"/Property 1=Hover.svg"}
                 alt="ticket-icon"
                 width={50}
                 height={20}
               />
             </Link>
-            <Link href={"/interested"}>
+            <Link className="nav-link" href={"/interested"}>
               <Image
-                className={`${pathname === "/interested" ? "hidden" : "block"}`}
+                className={`${
+                  pathname === "/interested" ? "hidden" : "nav-icon1"
+                } `}
                 src={"/Interested Button.svg"}
                 alt="ticket-button"
                 width={74}
                 height={20}
               />
+
               <Image
-                className={`${pathname === "/interested" ? "block" : "hidden"}`}
+                className={` nav-icon2 `}
+                src={"/Property 1=Hover (1).svg"}
+                alt="ticket-button"
+                width={74}
+                height={20}
+              />
+
+              <Image
+                className={`${
+                  pathname === "/interested" ? " nav-icon3 " : "hidden"
+                }   `}
                 src={"/Property 1=Hover (1).svg"}
                 alt="ticket-button"
                 width={74}

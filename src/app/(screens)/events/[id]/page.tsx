@@ -9,6 +9,7 @@ import ShareModalContent from "@/components/molecule/ShareModalContent";
 import SummaryModalContent from "@/components/molecule/SummaryModalContent";
 import GoogleMapLocation from "@/components/organism/GoogleMapLocation";
 import { allHomeEventData } from "@/data";
+import { eventDetailsImg } from "@/data";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -28,6 +29,9 @@ function EachEventPage() {
   const eventInfo = allHomeEventData.find(
     (data) => data.id === Number(params.id)
   );
+  const eventImg = eventDetailsImg.find((data) => (
+    data.id === Number(params.id)
+  ))
 
   const handleFav = () => {
     setFav(!fav);
@@ -70,7 +74,6 @@ function EachEventPage() {
   Modal.setAppElement(document.body);
 
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
-  // console.log({ apiKey });
   return (
     <div className="">
       <Modal
@@ -141,7 +144,7 @@ function EachEventPage() {
           <div className="w-[100%] shadow-lg rounded-xl">
             <Image
               className="rounded-3xl"
-              src={eventInfo?.img!}
+              src={eventImg?.img!}
               alt=""
               width={0}
               height={0}

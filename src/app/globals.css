@@ -55,6 +55,7 @@ body {
   flex-direction: column;
 }
 
+
 .icon1{
   display: block;
 }
@@ -137,4 +138,24 @@ body {
 }
 .time-shadow {
   box-shadow: 0 2px 8px 0 rgba(29, 29, 29, 0.25);
+}
+
+.nav-link:hover .nav-icon1 {
+  display: none;
+}
+.nav-link:hover .nav-icon2{
+  display: block;
+}
+.nav-link:hover .nav-icon3{
+  display: none;
+}
+
+.nav-icon1 {
+  display: block;
+}
+.nav-icon2{
+  display: none;
+}
+.nav-icon3{
+  display: block;
 }
