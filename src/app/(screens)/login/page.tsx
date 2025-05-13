@@ -36,10 +36,9 @@ const LoginPage = () => {
         email: loginDetails.email,
         password: loginDetails.password,
       });
-      console.log(data);
+      // console.log(data);
       if (data) {
-        login()
-        
+        login() 
         navigate.push(`/`);
       }
     } catch (err: unknown) {
