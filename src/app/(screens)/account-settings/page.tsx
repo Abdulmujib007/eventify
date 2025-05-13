@@ -40,8 +40,8 @@ const Page: React.FC = () => {
   ];
 
   return (
-    <div className="flex  bg-[#EEEEEE] ">
-      <div className="w-1/3 bg-[#EEEEEE]">
+    <div className="flex bg-[#EEEEEE] h-screen">
+      <div className="w-1/3 bg-[#EEEEEE] h-full overflow-y-auto">
         <p className="pl-12 pr-21 pt-12 text-3xl font-bold text-[#2D2C3C] mb-16">
           Account Settings
         </p>
@@ -61,7 +61,9 @@ const Page: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="w-2/3 bg-white">{renderContent()}</div>
+      <div className="w-2/3 bg-white h-full overflow-y-auto">
+        {renderContent()}
+      </div>
     </div>
   );
 };

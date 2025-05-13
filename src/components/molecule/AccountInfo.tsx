@@ -20,8 +20,8 @@ const AccountInfo = () => {
           style={{ height: "12.5rem", width: "12.5rem" }}
         />
         <Image
-          src="/cameraIcon.svg"
-          alt="cameraIcon"
+          src="/CameraIcon.svg"
+          alt="cam"
           width={0}
           height={0}
           style={{
