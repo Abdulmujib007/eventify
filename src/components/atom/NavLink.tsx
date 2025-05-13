@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 
 function NavLink() {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <div className="flex gap-[2rem]">
       <Link href={"/"}>
