@@ -24,6 +24,7 @@
   --color-tifyPurple: #2b293d;
   --color-tifyYellow: #ffe047;
   --color-footerText: #a9a9a9;
+  --color-tifyGray: rgba(130, 130, 130, 0.6)
 }
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -133,4 +134,7 @@ body {
   height:10rem;
   margin-left: 25%;
   margin-right: 25%;
+}
+.time-shadow {
+  box-shadow: 0 2px 8px 0 rgba(29, 29, 29, 0.25);
 }

@@ -14,17 +14,25 @@ const GoogleMapLocation: React.FC<MapProps> = ({ apiKey, locationName,height='10
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  let googleMapsScriptAdded = false;
+
+
   useEffect(() => {
     // Check if the script is already loaded
     if (window.google?.maps) {
       setIsLoaded(true);
       return;
     }
+    if (googleMapsScriptAdded) return;
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    googleMapsScriptAdded = true;
+    
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
     script.async = true;
     script.defer = true;
+    script.setAttribute("data-google-maps-api", "true");
     script.onload = () => {
       setIsLoaded(true);
     };

@@ -70,7 +70,7 @@ function EachEventPage() {
   Modal.setAppElement(document.body);
 
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
-  console.log({ apiKey });
+  // console.log({ apiKey });
   return (
     <div className="">
       <Modal
@@ -138,7 +138,7 @@ function EachEventPage() {
           height={25}
         />
         <div className=" ml-[4rem] w-full">
-          <div className="w-[100%]">
+          <div className="w-[100%] shadow-lg rounded-xl">
             <Image
               className="rounded-3xl"
               src={eventInfo?.img!}

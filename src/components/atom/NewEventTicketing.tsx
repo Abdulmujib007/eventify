@@ -4,14 +4,35 @@ import { useState } from "react";
 import Image from "next/image";
 import CreateEvenBackBtn from "./CreateEvenBackBtn";
 import CreateEventBtn from "./CreateEventBtn";
+import TicketDetails from "../molecule/TicketDetails";
 
 interface BtnsProp {
   handleBack: () => void;
   handleForward: () => void;
 }
+interface TicketProp {
+  ticketName: string;
+  ticketPrice: string;
+}
 
 function NewEventTicketing({ handleBack, handleForward }: BtnsProp) {
   const [paidTicketType, setPaidTicketType] = useState(true);
+  const [ticket, setTicket] = useState<TicketProp[]>([
+    { ticketName: "Ticket Name", ticketPrice: "Ticket Price" },
+  ]);
+
+  const handleAdd = () => {
+    setTicket([
+      ...ticket,
+      { ticketName: "Ticket Name", ticketPrice: "Ticket Price" },
+    ]);
+  };
+  const handleRemove = () => {
+    if (ticket.length > 1) {
+      setTicket(ticket.splice(0, ticket.length - 1));
+    }
+  };
+
   return (
     <div>
       <header className="font-medium text-[2.5rem]">
@@ -57,41 +78,12 @@ function NewEventTicketing({ handleBack, handleForward }: BtnsProp) {
       <header className="font-medium text-[2.5rem]">
         What tickets are you selling?
       </header>
-      <section className="mt-8 flex gap-x-16 items-end">
-        <div className="flex flex-col gap-y-4 w-fit ">
-          <span className="font-semibold text-2xl">Ticket Name</span>
-          <input
-            className="text-[1.375rem] px-6 py-3.5 border-[1px] border-[#828282] rounded-lg w-[32rem] "
-            type="text"
-            placeholder="Ticket Name e.g. General Admission"
-          />
-        </div>
-        <div className="flex flex-col gap-y-4 w-fit">
-          <span className="font-semibold text-2xl">Ticket Price</span>
-          <div className="w-[18rem] border-[1px] border-[#828282] rounded-lg flex">
-            <div className="px-5 py-4.5 bg-[#828282] rounded-l-lg">
-              <Image
-                src={"/₹.svg"}
-                alt="currency-icon"
-                width={12}
-                height={12}
-              />
-            </div>
-            <input
-              placeholder="0.00"
-              type="text"
-              className="py-4.5 px-[1.375rem] text-[1.375rem outline-none"
-            />
-          </div>
-        </div>
-        <div className="ml-[4.125rem]">
-          <Image
-            src={"/Add button.svg"}
-            alt="add-icon"
-            width={20}
-            height={20}
-          />
-        </div>
+      <section className="flex flex-col gap-y-5">
+        {
+          ticket.map((val,ind) => (
+            <TicketDetails {...val} ind={ind} key={ind} handleAdd={handleAdd} handleRemove={handleRemove} />
+          ))
+        }
       </section>
       <section className="mt-[13.5rem] w-full flex justify-end gap-x-8 ">
         <CreateEvenBackBtn onClick={handleBack} text="Go back" />

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-// import CreateEvenBackBtn from "../atom/CreateEvenBackBtn";
 import CreateEventBtn from "../atom/CreateEventBtn";
+import LocationSelect from "./LocationSelect";
+import CreateEventInput from "../atom/CreateEventInput";
+import CreateEventDate from "./CreateEventDate";
 
 const selectInfo = [
   "Cultural & Art",
@@ -14,7 +16,12 @@ const selectInfo = [
   "Technology & Innovation",
   "Travel & Adventure",
 ];
-const locationInfo = ['Online','Ilorin Kwara state Nigeria']
+
+interface Props {
+  date: string;
+  start: string;
+  end: string;
+}
 
 interface SelectProp {
   show: boolean;
@@ -29,8 +36,8 @@ function CreateNewEvent({handleBtnClick} : CreateEventProp) {
     show: false,
     text: "Please Select One",
   });
-   const [select1, setSelect1] = useState<SelectProp>({
-     show: false,
+   const [select1, setSelect1] = useState<{show:string; text:string }>({
+     show: '',
      text: "Please Select One",
    });
 
@@ -39,9 +46,13 @@ function CreateNewEvent({handleBtnClick} : CreateEventProp) {
     setSelect({ show: false, text: selected });
 
   };
-  const handleSelect1 = (index: number) => {
-    const selected = locationInfo[index];
-    setSelect1({ show: false, text: selected });
+  const handleSelect1 = (event: string) => {
+    // const selected = locationInfo[index];
+    if(event === 'Online'){
+      setSelect1({ show:'', text: event });
+    } else if(event === 'Venue') {
+      setSelect1({show:'events',text:event})
+    }
   };
 
   const handleShowSelect = () => {
@@ -49,8 +60,25 @@ function CreateNewEvent({handleBtnClick} : CreateEventProp) {
   };
 
    const handleShowSelect1 = () => {
-     setSelect1((prev) => ({ text: "Please Select One", show: !prev.show }));
+     setSelect1((prev) => ({ text: "Please Select One", show:prev.show === 'all' ? '' : 'all' }));
    };
+
+
+    const [moreDate, setMoreDate] = useState<Props[]>([
+       { date: "Start Date", start: "Start Time", end: "End Time" },
+     ]);
+   
+     const handleAdd = () => {
+       setMoreDate([
+         ...moreDate,
+         { date: "Start Date", start: "Start Time", end: "End Time" },
+       ]);
+     };
+   
+     const handleRemove = () => {
+       setMoreDate(moreDate.slice(0, -1));
+     };
+   
 
   
 
@@ -71,10 +99,9 @@ function CreateNewEvent({handleBtnClick} : CreateEventProp) {
               height={26}
             />
           </div>
-          <input
-            type="text"
-            placeholder="Enter the name of your event"
-            className="text-xl w-[50%] outline-none border-2 border-[#ACACAC] rounded-lg py-3.5 px-6"
+          <CreateEventInput
+            placeholder="Enter the name of your Event"
+            title="name"
           />
         </main>
         <main className="flex gap-x-5 w-full ml-[2.4rem]">
@@ -190,102 +217,16 @@ function CreateNewEvent({handleBtnClick} : CreateEventProp) {
             height={26}
           />
         </div>
-        <div className="ml-5 flex gap-12 items-center">
-          <section className="flex flex-col gap-4 justify-center">
-            <div className="flex items-center">
-              <span className="font-bold text-xl">Start Date</span>
-              <Image
-                className="mb-2"
-                src={"/_.svg"}
-                alt="star-svg"
-                width={15}
-                height={26}
-              />
-            </div>
-            <div className="flex gap-10 rounded-lg border-[1px] border-[#828282] w-[20rem] ">
-              <div className=" bg-[#828282] p-3.5 ">
-                <Image
-                  src={"/Vector 4.svg"}
-                  alt="date-icon"
-                  width={30}
-                  height={20}
-                />
-              </div>
-              <input
-                placeholder="DD/MM/YY"
-                className="outline-none  w-full"
-                type="month"
-              />
-            </div>
-          </section>
-          <section className="flex flex-col gap-4 justify-center">
-            <div className="flex items-center">
-              <span className="font-bold text-xl">Start Time</span>
-              <Image
-                className="mb-2"
-                src={"/_.svg"}
-                alt="star-svg"
-                width={15}
-                height={26}
-              />
-            </div>
-            <div className="flex gap-10 rounded-lg border-[1px] border-[#828282] w-[20rem] ">
-              <div className=" bg-[#828282] p-3.5 ">
-                <Image
-                  src={"/Group.svg"}
-                  alt="date-icon"
-                  width={30}
-                  height={20}
-                />
-              </div>
-              <input
-                placeholder="DD/MM/YY"
-                className="outline-none  w-full"
-                type="time"
-              />
-            </div>
-          </section>
-          <section className="flex flex-col gap-4 justify-center">
-            <div className="flex items-center">
-              <span className="font-bold text-xl">End Time</span>
-              <Image
-                className="mb-2"
-                src={"/_.svg"}
-                alt="star-svg"
-                width={15}
-                height={26}
-              />
-            </div>
-            <div className="flex gap-10 rounded-lg border-[1px] border-[#828282] w-[20rem] ">
-              <div className=" bg-[#828282] p-3.5 ">
-                <Image
-                  src={"/Group.svg"}
-                  alt="date-icon"
-                  width={30}
-                  height={20}
-                />
-              </div>
-              <input
-                placeholder="DD/MM/YY"
-                className="outline-none  w-full"
-                type="time"
-              />
-            </div>
-          </section>
-          <div>
-            <Image
-              src={"/Add button.svg"}
-              alt="add-btn"
-              width={20}
-              height={20}
-            />
-          </div>
+        <div className="flex flex-col gap-10 w-full">
+          {moreDate.map((data, ind) => (
+            <CreateEventDate {...data} key={ind}   handleAdd={handleAdd} handleRemove={handleRemove} ind={ind}  />
+          ))}
         </div>
       </section>
       <header className="font-medium text-[2.5rem] mt-[5.625rem] ml-[15.875rem] mb-4">
         Location
       </header>
-      <section className="flex gap-x-5 w-full ml-[1rem] ">
+      <section className="flex gap-x-5 w-full items-start ml-[1rem] ">
         <div className="flex items-center">
           <span className="font-bold text-2xl">
             Where will your <br /> event take place?
@@ -298,14 +239,14 @@ function CreateNewEvent({handleBtnClick} : CreateEventProp) {
             height={26}
           />
         </div>
-        <div className={`relative w-[50%]`}>
+        <div className={`relative w-[80%]`}>
           <div
             onClick={handleShowSelect1}
             className={` ${
               select1.text === "Please Select One"
                 ? "text-[#ACACAC]"
                 : "text-black"
-            }  text-xl w-full border-2 border-[#ACACAC] rounded-lg py-3.5 px-6 flex justify-between items-center bg-white`}
+            }  text-xl  border-2 border-[#ACACAC] rounded-lg py-3.5 px-6 flex justify-between items-center bg-white w-[62.5%] `}
           >
             <span>{select1.text}</span>
             {select1.show ? (
@@ -319,21 +260,7 @@ function CreateNewEvent({handleBtnClick} : CreateEventProp) {
               <Image src={"/Vector 3.svg"} alt="arrow" width={20} height={20} />
             )}
           </div>
-          <div
-            className={`${
-              select1.show ? "block translate-y-0 " : "hidden -translate-y-4"
-            }  transition-all duration-500 ease-in-out absolute w-full border-2 z-50 top-[4rem] rounded-lg border-[#ACACAC] bg-white   `}
-          >
-            {locationInfo.map((data, ind) => (
-              <p
-                onClick={() => handleSelect1(ind)}
-                className="py-5 pl-12 hover:bg-[#D9D9D9] text-xl "
-                key={ind}
-              >
-                {data}
-              </p>
-            ))}
-          </div>
+          <LocationSelect handleSelect1={handleSelect1} select1={select1} />
         </div>
       </section>
       <header className="font-medium text-[2.5rem] mt-[5.625rem] ml-[15.875rem] mb-4">
