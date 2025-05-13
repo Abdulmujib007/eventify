@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import AccountSettingsHeader from "../atom/AccountSettingsHeader";
 import Image from "next/image";
 import AccountSettingInput from "../atom/AccountSettingInput";
 import AccountSettingsButton from "../atom/AccountSettingsButton";
 
 const AccountInfo = () => {
+  const [profileImage, setProfileImage] = useState("/userIcon.svg");
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="ml-[1.8125rem]">
       <AccountSettingsHeader title="Account Information" />
@@ -13,23 +26,34 @@ const AccountInfo = () => {
       </p>
       <div className="relative ml-[14rem]">
         <Image
-          src="/userIcon.svg"
+          src={profileImage}
           alt="userIcon"
           width={0}
           height={0}
-          style={{ height: "12.5rem", width: "12.5rem" }}
+          style={{ height: "12.5rem", width: "12.5rem", borderRadius: "50%" }}
         />
-        <Image
-          src="/CameraIcon.svg"
-          alt="cam"
-          width={0}
-          height={0}
-          style={{
-            height: "3.5625rem",
-            width: "3.5625rem",
-          }}
-          className="absolute bottom-2.5 left-36"
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          className="hidden"
+          id="fileInput"
         />
+        <label
+          htmlFor="fileInput"
+          className="absolute bottom-2.5 left-36 cursor-pointer"
+        >
+          <Image
+            src="/CameraIcon.svg"
+            alt="cam"
+            width={0}
+            height={0}
+            style={{
+              height: "3.5625rem",
+              width: "3.5625rem",
+            }}
+          />
+        </label>
       </div>
       <div>
         <p className="text-[2rem] font-semibold mb-8 mt-[5.625rem] ml-[11.5rem]">
