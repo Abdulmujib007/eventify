@@ -19,9 +19,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [authLoading, setAuthLoading] = useState(true);
 
   useEffect(() => {
-    // const data = JSON.parse(localStorage.getItem("isLoggedIn") || "false");
-    // setIsLoggedIn(data);
-    
     const cookies = document.cookie;
     const isUserLoggedIn = cookies.includes("isLoggedIn=true");
 
@@ -30,24 +27,24 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const login = () => {
-    // localStorage.setItem("isLoggedIn", JSON.stringify(true));
-    // setAuthLoading(true);
     const domain =
       window.location.hostname === "localhost"
         ? "localhost"
         : window.location.hostname;
-        document.cookie = `isLoggedIn=true; path=/; max-age=${
-          60 * 60 * 24 * 7
-        }; domain=${domain}; SameSite=Lax`;
+    document.cookie = `isLoggedIn=true; path=/; max-age=${
+      60 * 60 * 24 * 7
+    }; domain=${domain}; SameSite=Lax`;
 
-    // document.cookie = "isLoggedIn=true; path=/; max-age=86400";
     setIsLoggedIn(true);
   };
 
   const logout = () => {
-    // localStorage.setItem("isLoggedIn", JSON.stringify(false));
-    document.cookie =
-      "isLoggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    const domain =
+      window.location.hostname === "localhost"
+        ? "localhost"
+        : window.location.hostname;
+
+    document.cookie = `isLoggedIn=false; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain};`;
     setIsLoggedIn(false);
   };
 

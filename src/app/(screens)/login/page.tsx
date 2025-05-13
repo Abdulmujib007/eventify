@@ -4,7 +4,7 @@ import LoginSignupFramework from "@/components/molecule/LoginSignupFramework";
 import { useRouter } from "next/navigation";
 import { userLogin } from "@/utils/helper";
 import { useState } from "react";
-import { ToastContainer,toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../../../context/AuthContext";
 
 interface LoginProp {
@@ -14,7 +14,7 @@ interface LoginProp {
 
 const LoginPage = () => {
   const navigate = useRouter();
-  const {login} = useAuth()
+  const { login } = useAuth();
   const [loginDetails, setLoginDetails] = useState<LoginProp>({
     email: "",
     password: "",
@@ -36,18 +36,17 @@ const LoginPage = () => {
         email: loginDetails.email,
         password: loginDetails.password,
       });
-      // console.log(data);
       if (data) {
-        login() 
+        login();
         navigate.push(`/`);
       }
     } catch (err: unknown) {
       console.log({ err });
-      toast('Invalid Password or Email,Pls try again',{
-        style:{ backgroundColor: "#2b293d", color: "white" }
-      }) 
-    } finally{
-      setIsLoading(false)
+      toast("Invalid Password or Email,Pls try again", {
+        style: { backgroundColor: "#2b293d", color: "white" },
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
