@@ -50,6 +50,7 @@ const LoginPage = () => {
         style: { backgroundColor: "#2b293d", color: "white" },
       });
     } finally {
+      setLoginDetails({ email: "", password: "" });
       setIsLoading(false);
     }
   };

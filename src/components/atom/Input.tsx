@@ -1,23 +1,23 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import { useState } from "react";
 
 interface InputProps {
-    type: 'password' | 'text' | 'email'
-    placeholder:string;
-    headerText:string;
-    onChange? : (e:React.ChangeEvent<HTMLInputElement>) => void;
-    value ?: string;
+  type: "password" | "text" | "email";
+  placeholder: string;
+  headerText: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
 }
 
-function Input({type,placeholder,headerText,onChange,value}:InputProps ) {
-    const [focus,setFocus] = useState(false)
-    const [passwordShow,setPasswordShow] = useState(false)
+function Input({ type, placeholder, headerText, onChange, value }: InputProps) {
+  const [focus, setFocus] = useState(false);
+  const [passwordShow, setPasswordShow] = useState(false);
 
-    const handlePasswordShow = () => {
-        setPasswordShow(!passwordShow)
-    }
+  const handlePasswordShow = () => {
+    setPasswordShow(!passwordShow);
+  };
 
   return (
     <div className="flex flex-col gap-y-1.5">
@@ -33,13 +33,13 @@ function Input({type,placeholder,headerText,onChange,value}:InputProps ) {
           onBlur={() => setFocus(false)}
           value={value}
           onChange={onChange}
-          type={`${passwordShow ? "password" : "text"}`}
+          type={`${!passwordShow && type === "password" ? "password" : "text"}`}
           placeholder={placeholder}
           className="w-full outline-none text-lg "
         />
         {type === "password" && (
           <div>
-            {passwordShow && (
+            {!passwordShow && (
               <Image
                 onClick={handlePasswordShow}
                 src={"/eye-off-line.svg"}
@@ -48,7 +48,7 @@ function Input({type,placeholder,headerText,onChange,value}:InputProps ) {
                 height={22}
               />
             )}
-            {!passwordShow && (
+            {passwordShow && (
               <Image
                 onClick={handlePasswordShow}
                 src={"/Vector 2.svg"}
@@ -64,4 +64,4 @@ function Input({type,placeholder,headerText,onChange,value}:InputProps ) {
   );
 }
 
-export default Input
+export default Input;
