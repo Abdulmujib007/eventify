@@ -8,17 +8,10 @@ import { eventData } from "@/data";
 function EventPage() {
   return (
     <div>
-<<<<<<< Updated upstream
       <div className="event-hero pt-[9.375rem] pb-[7.5rem]">
         <EventHero />
       </div>
       <div className="px-[4rem] mt-[3.75rem] flex ">
-=======
-      <div className="bg-[#2B293D] pt-[9.375rem] pb-[7.5rem]">
-        <EventHero />
-      </div>
-      <div className="px-[6.25rem] mt-[3.75rem] flex ">
->>>>>>> Stashed changes
         <div className="border-r-1 border-[#6F6F6F] h-fit pb-[18.1875rem]">
           <p className="font-semibold text-[2rem] mb-[0.625rem]">Filters</p>
           <CheckBoxSection
@@ -160,13 +153,8 @@ function EventPage() {
           </div>
           <div className="mt-[3.125rem] grid grid-cols-2 gap-x-6 gap-y-[3.8125rem] ml-[3.125rem] mb-[6.5625rem]">
             {eventData.map((event, index) => (
-<<<<<<< Updated upstream
               <div key={index}>
                 <EventCard {...event} />
-=======
-              <div>
-                <EventCard key={index} {...event} />
->>>>>>> Stashed changes
               </div>
             ))}
           </div>

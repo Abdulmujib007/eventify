@@ -1,4 +1,3 @@
-// 'use client'
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -6,6 +5,7 @@ import Navbar from "@/components/molecule/Navbar";
 import Footer from "@/components/molecule/Footer";
 import { AuthProvider } from "../../context/AuthContext";
 import AuthGuard from "@/components/organism/AuthGuard";
+import { cookies } from "next/headers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,12 +27,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const setCookies = async ({ key, value }: { key: string; value: string }) => {
+    "use server";
+    const cookiesResponse = await cookies();
+    console.log({ cookiesResponse });
+    cookiesResponse.set(key, value);
+  };
+
+  const deleteCookies = async (key: string) => {
+    "use server";
+    (await cookies()).delete(key);
+  };
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col `}
       >
-        <AuthProvider>
+        <AuthProvider setCookies={setCookies} deleteCookies={deleteCookies}>
           <AuthGuard>
             <Navbar />
             <main className="flex flex-col flex-grow overflow-y-auto main-style">

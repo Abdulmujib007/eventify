@@ -37,12 +37,16 @@ const LoginPage = () => {
         password: loginDetails.password,
       });
       if (data) {
-        login();
+        await login();
         navigate.push(`/`);
       }
     } catch (err: unknown) {
       console.log({ err });
-      toast("Invalid Password or Email,Pls try again", {
+      const errorMessage = (err as { message: string }).message;
+      const parseMessage = errorMessage?.includes("Cannot read properties")
+        ? "failed to login, please try again!"
+        : errorMessage;
+      toast(parseMessage ?? "Invalid Password or Email,Pls try again", {
         style: { backgroundColor: "#2b293d", color: "white" },
       });
     } finally {
