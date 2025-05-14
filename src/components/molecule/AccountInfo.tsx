@@ -5,10 +5,10 @@ import AccountSettingInput from "../atom/AccountSettingInput";
 import AccountSettingsButton from "../atom/AccountSettingsButton";
 
 const AccountInfo = () => {
-  const [profileImage, setProfileImage] = useState("/userIcon.svg");
+  const [profileImage, setProfileImage] = useState<unknown>("/userIcon.svg");
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -26,7 +26,7 @@ const AccountInfo = () => {
       </p>
       <div className="relative ml-[14rem]">
         <Image
-          src={profileImage}
+          src={profileImage as string}
           alt="userIcon"
           width={0}
           height={0}
