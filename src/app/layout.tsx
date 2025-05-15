@@ -30,7 +30,6 @@ export default function RootLayout({
   const setCookies = async ({ key, value }: { key: string; value: string }) => {
     "use server";
     const cookiesResponse = await cookies();
-    console.log({ cookiesResponse });
     cookiesResponse.set(key, value);
   };
 

@@ -4,12 +4,12 @@ import { usePathname } from "next/navigation";
 function Footer() {
   const pathname = usePathname();
   return (
-    <div
+    <footer
       className={`${
         pathname === "/login" || pathname === "/signup" ? "hidden" : "flex"
-      } pb-5 pt-12 px-[8.3rem] text-footerText bg-tifyPurple w-full flex flex-col gap-4`}
+      } pb-5 pt-12 tablet:px-[8.3rem] px-[3rem] text-footerText bg-tifyPurple w-full flex flex-col gap-4`}
     >
-      <main className="pb-[3.7rem] border-b-[1px] border-b-footerText flex justify-between">
+      <main className="pb-[3.7rem] border-b-[1px] border-b-footerText flex flex-wrap gap-x-[3rem]  tablet:gap-x-0  flex-col  md:flex-row tablet:gap-y-0 gap-y-[2rem]   justify-start   tablet:justify-between">
         <section className="text-sm flex flex-col gap-6">
           <header className="font-semibold text-lg text-white">
             Company Info
@@ -81,7 +81,7 @@ function Footer() {
       <p className="text-sm w-full  text-center">
         <span>&#169;</span> 2023 Eventify. All rights reserved.
       </p>
-    </div>
+    </footer>
   );
 }
 
