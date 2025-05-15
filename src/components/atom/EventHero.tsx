@@ -59,7 +59,7 @@ const EventHero = () => {
                 height={30}
               />
               <input
-                className="font-medium text-xl outline-none"
+                className="font-medium text-xl outline-none w-[80%]"
                 placeholder="Mumbai"
               />
             </div>

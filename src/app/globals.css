@@ -24,7 +24,8 @@
   --color-tifyPurple: #2b293d;
   --color-tifyYellow: #ffe047;
   --color-footerText: #a9a9a9;
-  --color-tifyGray: rgba(130, 130, 130, 0.6)
+  --color-tifyGray: rgba(130, 130, 130, 0.6);
+  --breakpoint-tablet: 1150px;
 }
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -42,7 +43,6 @@ body {
   overflow: hidden;
   width: 100dvw;
   height: 100dvh;
-
 }
 .main-style {
   overflow-x: hidden;
@@ -55,17 +55,16 @@ body {
   flex-direction: column;
 }
 
-
-.icon1{
+.icon1 {
   display: block;
 }
-.icon2{
-  display:none;
-}
-.profile:hover .profile-icon .icon1{
+.icon2 {
   display: none;
 }
-.profile:hover .profile-icon .icon2{
+.profile:hover .profile-icon .icon1 {
+  display: none;
+}
+.profile:hover .profile-icon .icon2 {
   display: block;
 }
 .dropdown {
@@ -79,6 +78,7 @@ body {
   border-radius: 10px;
   box-shadow: 0px 2px 8px #1d1d1d;
 }
+
 .heroBackground {
   background-image: url("/lee-blanchflower-1dW1vEJLlCQ-unsplash.jpg");
   background-color: #2b293d;
@@ -93,7 +93,7 @@ body {
   display: block;
 }
 .detailShadow:hover {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) ;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
 .getStarted {
@@ -124,15 +124,15 @@ body {
 .event-hero {
   background-color: rgba(43, 41, 61, 0.9);
 }
-.ticket-shadow{
-  box-shadow: 0 -4px 10px 0 rgba(29, 29, 29, 0.15)
+.ticket-shadow {
+  box-shadow: 0 -4px 10px 0 rgba(29, 29, 29, 0.15);
 }
-.ticket-summary{
-  background-image: url('/Ticket.png');
+.ticket-summary {
+  background-image: url("/Ticket.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  height:10rem;
+  height: 10rem;
   margin-left: 25%;
   margin-right: 25%;
 }
@@ -143,19 +143,19 @@ body {
 .nav-link:hover .nav-icon1 {
   display: none;
 }
-.nav-link:hover .nav-icon2{
+.nav-link:hover .nav-icon2 {
   display: block;
 }
-.nav-link:hover .nav-icon3{
+.nav-link:hover .nav-icon3 {
   display: none;
 }
 
 .nav-icon1 {
   display: block;
 }
-.nav-icon2{
+.nav-icon2 {
   display: none;
 }
-.nav-icon3{
+.nav-icon3 {
   display: block;
 }
