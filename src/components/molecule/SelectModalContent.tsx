@@ -48,6 +48,7 @@ function SelectModalContent({
             alt="remove-icon"
             width={50}
             height={50}
+            priority={true}
           />
           <span className="text-5xl font-semibold">{quantity}</span>
           <Image
@@ -56,6 +57,7 @@ function SelectModalContent({
             alt="remove-icon"
             width={50}
             height={50}
+            priority={true}
           />
         </div>
       </main>

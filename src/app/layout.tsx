@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/molecule/Navbar";
 import Footer from "@/components/molecule/Footer";
-import { AuthProvider } from "../../context/AuthContext";
+import { AuthProvider } from "../context/AuthContext";
 import AuthGuard from "@/components/organism/AuthGuard";
 import { cookies } from "next/headers";
 

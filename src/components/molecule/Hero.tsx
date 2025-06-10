@@ -31,6 +31,7 @@ function Hero() {
               alt="search-image"
               width={25}
               height={25}
+              priority={true}
             />
             <input
               value={searchText}
@@ -47,6 +48,7 @@ function Hero() {
             src={"/Close button.svg"}
             width={30}
             height={30}
+            priority={true}
           />
         </form>
         <main
@@ -60,6 +62,7 @@ function Hero() {
                 alt="location-image"
                 width={22}
                 height={30}
+                priority={true}
               />
               <input
                 className="font-medium text-xl outline-none w-[70%]"
@@ -72,6 +75,7 @@ function Hero() {
                 src={"/Vector 3.svg"}
                 width={18}
                 height={9}
+                priority={true}
               />
             )}
             {location && (
@@ -80,6 +84,7 @@ function Hero() {
                 src={"/Vector 3 (1).svg"}
                 width={18}
                 height={9}
+                priority={true}
               />
             )}
           </div>
@@ -95,6 +100,7 @@ function Hero() {
                 alt="destination"
                 width={25}
                 height={25}
+                priority={true}
               />
               <span>Detect Current Location</span>
             </div>
@@ -104,6 +110,7 @@ function Hero() {
                 alt="destination"
                 width={25}
                 height={25}
+                priority={true}
               />
               <span>Online</span>
             </div>

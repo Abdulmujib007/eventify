@@ -36,6 +36,7 @@ function EventDetails({
         alt="picture"
         width={512}
         height={254}
+        priority={true}
       />
       <main className="flex px-5 gap-5 ">
         <section className="'flex flex-col min-w-max  gap-1 mt-1">
@@ -57,6 +58,7 @@ function EventDetails({
                 alt="price-icon"
                 width={22}
                 height={22}
+                priority={true}
               />
               {price}
             </div>
@@ -65,6 +67,7 @@ function EventDetails({
               alt="circle-icon"
               width={5}
               height={5}
+              priority={true}
             />
             <div className="flex gap-1.5 items-center text-[0.7rem] sm:text-[1rem]">
               <Image
@@ -72,6 +75,7 @@ function EventDetails({
                 alt="star-icon"
                 width={21}
                 height={21}
+                priority={true}
               />
               {fav}
             </div>

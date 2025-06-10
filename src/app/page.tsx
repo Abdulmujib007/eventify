@@ -12,7 +12,7 @@ import Link from "next/link";
 
 function HomePage() {
   const [filerWith, setFilterWith] = useState("");
-  const [datatoBeMap, setDataToMap] = useState<DataProp[]>([]);
+  const [dataToBeMap, setDataToMap] = useState<DataProp[]>([]);
   const [isActiveButton, setIsActiveButton] = useState<number>(1);
 
   const popularEventData = allHomeEventData.slice(0, 6);
@@ -99,7 +99,7 @@ function HomePage() {
           />
         </div>
         <main className="flex flex-wrap gap-x-10 gap-y-10 mb-[1.5rem]  sm:mb-[3.75rem]">
-          {datatoBeMap.map((detail, ind) => (
+          {dataToBeMap.map((detail, ind) => (
             <EventDetails key={ind} {...detail} />
           ))}
         </main>
@@ -170,6 +170,7 @@ function HomePage() {
             alt="date-icon"
             width={33}
             height={37}
+            priority={true}
           />
           <span className="font-semibold text-xl tablet:text-2xl text-[#2B293D]">
             Create Event

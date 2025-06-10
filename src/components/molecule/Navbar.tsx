@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import ProfileSvg from "../atom/ProfileSvg";
 import ProfileSvg2 from "../atom/ProfileSvg2";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
 
 function Navbar() {
@@ -28,18 +28,19 @@ function Navbar() {
       }  `}
     >
       <div className="flex w-full tablet:items-end items-center  justify-between ">
-        <section className="flex h-full items-center ">
+        <Link href={"/"} className="flex h-full items-center">
           <Image
             src={"/ticket.svg"}
             alt="ticket-img"
             className="tablet:w-[4.0625rem] w-[3rem] h-[2.8rem] tablet:h-[2.8125rem]"
             width={0}
             height={0}
+            priority={true}
           />
           <p className=" text-[1.5rem] tablet:text-[2.67rem] text-tifyYellow font-bold font-sans">
             Eventify
           </p>
-        </section>
+        </Link>
         <section className=" hidden tablet:block">
           <NavLink />
         </section>
@@ -88,6 +89,7 @@ function Navbar() {
                 alt="menu-icon"
                 width={30}
                 height={20}
+                priority={true}
               />
             )}
             {isMenuOpen && (
@@ -97,6 +99,7 @@ function Navbar() {
                 alt="close-icon"
                 width={30}
                 height={20}
+                priority={true}
               />
             )}
           </div>
@@ -148,6 +151,7 @@ function Navbar() {
                   alt="ticket-button"
                   width={50}
                   height={20}
+                  priority={true}
                 />
                 <Image
                   className={`nav-icon2`}
@@ -155,6 +159,7 @@ function Navbar() {
                   alt="ticket-icon"
                   width={50}
                   height={20}
+                  priority={true}
                 />
 
                 <Image
@@ -165,6 +170,7 @@ function Navbar() {
                   alt="ticket-icon"
                   width={50}
                   height={20}
+                  priority={true}
                 />
               </Link>
               <Link className="nav-link" href={"/interested"}>
@@ -176,6 +182,7 @@ function Navbar() {
                   alt="ticket-button"
                   width={74}
                   height={20}
+                  priority={true}
                 />
 
                 <Image
@@ -184,6 +191,7 @@ function Navbar() {
                   alt="ticket-button"
                   width={74}
                   height={20}
+                  priority={true}
                 />
 
                 <Image
@@ -194,6 +202,7 @@ function Navbar() {
                   alt="ticket-button"
                   width={74}
                   height={20}
+                  priority={true}
                 />
               </Link>
               <div className="profile z-50 ">
@@ -281,6 +290,7 @@ function Navbar() {
                       alt="ticket-button"
                       width={50}
                       height={20}
+                      priority={true}
                     />
                     <Image
                       className={`nav-icon2`}
@@ -288,6 +298,7 @@ function Navbar() {
                       alt="ticket-icon"
                       width={50}
                       height={20}
+                      priority={true}
                     />
 
                     <Image
@@ -298,6 +309,7 @@ function Navbar() {
                       alt="ticket-icon"
                       width={50}
                       height={20}
+                      priority={true}
                     />
                   </Link>
                   <Link className="nav-link" href={"/interested"}>
@@ -309,6 +321,7 @@ function Navbar() {
                       alt="ticket-button"
                       width={74}
                       height={20}
+                      priority={true}
                     />
 
                     <Image
@@ -317,6 +330,7 @@ function Navbar() {
                       alt="ticket-button"
                       width={74}
                       height={20}
+                      priority={true}
                     />
 
                     <Image
@@ -327,6 +341,7 @@ function Navbar() {
                       alt="ticket-button"
                       width={74}
                       height={20}
+                      priority={true}
                     />
                   </Link>
                 </div>

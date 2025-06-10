@@ -29,9 +29,9 @@ function EachEventPage() {
   const eventInfo = allHomeEventData.find(
     (data) => data.id === Number(params.id)
   );
-  const eventImg = eventDetailsImg.find((data) => (
-    data.id === Number(params.id)
-  ))
+  const eventImg = eventDetailsImg.find(
+    (data) => data.id === Number(params.id)
+  );
 
   const handleFav = () => {
     setFav(!fav);
@@ -64,12 +64,12 @@ function EachEventPage() {
     setPrice(price - 200);
   };
   const handleBackBtn = () => {
-    if(modal.content === 'details'){
-      setModal({isOpen:true, content: 'select'})
-    } else if(modal.content === 'summary') {
-      setModal({isOpen:true,content:'details'})
+    if (modal.content === "details") {
+      setModal({ isOpen: true, content: "select" });
+    } else if (modal.content === "summary") {
+      setModal({ isOpen: true, content: "details" });
     }
-  }
+  };
 
   Modal.setAppElement(document.body);
 
@@ -115,7 +115,11 @@ function EachEventPage() {
                 />
               )}
               {modal.content === "summary" && (
-                <SummaryModalContent price={price}  handleBackBtn={handleBackBtn} handleBtnCLick={handleChangeModalContent} />
+                <SummaryModalContent
+                  price={price}
+                  handleBackBtn={handleBackBtn}
+                  handleBtnCLick={handleChangeModalContent}
+                />
               )}
             </div>
           </div>
@@ -139,6 +143,7 @@ function EachEventPage() {
           alt="back-icon"
           width={25}
           height={25}
+          priority={true}
         />
         <div className=" ml-[4rem] w-full">
           <div className="w-[100%] shadow-lg rounded-xl">
@@ -150,6 +155,7 @@ function EachEventPage() {
               height={0}
               sizes="100wv"
               style={{ width: "100%", height: "35rem" }}
+              priority={true}
             />
           </div>
 

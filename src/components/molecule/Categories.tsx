@@ -14,6 +14,7 @@ function Categories({ src, text }: { src: string; text: string }) {
         alt="categories"
         width={0}
         height={0}
+        priority={true}
       />
       <p className="font-semibold  text-sm xl:text-xl text-center">{text}</p>
     </Link>
