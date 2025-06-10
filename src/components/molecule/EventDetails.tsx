@@ -28,7 +28,7 @@ function EventDetails({
   return (
     <Link
       href={`/events/${id}`}
-      className="flex flex-col w-[28rem] gap-5 pb-14 detailShadow"
+      className="flex flex-col w-[28rem] gap-5 pb-14 transition-all duration-500 ease-in-out detailShadow "
     >
       <Image
         className="rounded-t-[10px]"
