@@ -161,11 +161,13 @@ function EachEventPage() {
               />
             </div>
           )}
-          <div className="w-[100%] shadow-lg rounded-xl">
+          <div
+            className={`w-[100%] shadow-lg rounded-xl ${
+              imgLoading ? "opacity-0" : "opacity-100"
+            } `}
+          >
             <Image
-              className={`rounded-3xl ${
-                imgLoading ? "opacity-0" : "opacity-100"
-              } `}
+              className={`rounded-3xl`}
               src={eventImg?.img!}
               alt=""
               width={0}
