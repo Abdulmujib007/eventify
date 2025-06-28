@@ -24,15 +24,17 @@ function EachEventPage() {
     isOpen: false,
     content: "",
   });
+
   const router = useRouter();
   const params = useParams();
+
   const eventInfo = allHomeEventData.find(
     (data) => data.id === Number(params.id)
   );
+
   const eventImg = eventDetailsImg.find(
     (data) => data.id === Number(params.id)
   );
-
   const handleFav = () => {
     setFav(!fav);
   };
@@ -74,6 +76,7 @@ function EachEventPage() {
   Modal.setAppElement(document.body);
 
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
+
   return (
     <div className="">
       <Modal

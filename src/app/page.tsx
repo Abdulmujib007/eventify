@@ -49,12 +49,12 @@ function HomePage() {
           Explore Categories
         </header>
         <div className="mt-[3.125rem] flex justify-center sm:justify-between xl:px-8 px-1 flex-wrap md:flex-nowrap gap-y-8">
-          <Categories text="Entertainment" src="/Image.svg" />
-          <Categories text="Educational & Business" src="/Image (1).svg" />
-          <Categories text="Cultural & Arts" src="/Image (2).svg" />
-          <Categories text="Sports & Fitness" src="/Image (3).svg" />
-          <Categories text="Technology & Innovation" src="/Image (5).svg" />
-          <Categories text="Travel & Adventure" src="/Image (4).svg" />
+          <Categories text="Entertainment" src="/categ.png" />
+          <Categories text="Educational & Business" src="/category1.png" />
+          <Categories text="Cultural & Arts" src="/category2.png" />
+          <Categories text="Sports & Fitness" src="/category3.png" />
+          <Categories text="Technology & Innovation" src="/category4.png" />
+          <Categories text="Travel & Adventure" src="/category5.png" />
         </div>
       </section>
       <section className="mx-[2rem] 2xl:mx-[8rem] 2xl:mb-[9.3rem] mb-[4rem]">
