@@ -44,6 +44,9 @@ export const AuthProvider = ({
     document.cookie = `isLoggedIn=true; path=/; max-age=${
       60 * 60 * 24 * 7
     }; domain=${domain}; SameSite=Lax`;
+    document.cookie = `isLoggedIn=true; path=/; max-age=${
+      60 * 60 * 24 * 7
+    }; domain=${domain}; SameSite=Lax`;
 
     await setCookies({ key: "isLoggedIn", value: "true" });
     setIsLoggedIn(true);

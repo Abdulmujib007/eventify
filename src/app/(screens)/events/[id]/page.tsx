@@ -24,6 +24,7 @@ function EachEventPage() {
     isOpen: false,
     content: "",
   });
+  const [imgLoading, setImgLoading] = useState(true);
 
   const router = useRouter();
   const params = useParams();
@@ -32,9 +33,9 @@ function EachEventPage() {
     (data) => data.id === Number(params.id)
   );
 
-  const eventImg = eventDetailsImg.find(
-    (data) => data.id === Number(params.id)
-  );
+  const eventImg = eventDetailsImg.find((data) => {
+    return data.id === Number(params.id);
+  });
   const handleFav = () => {
     setFav(!fav);
   };
@@ -149,9 +150,22 @@ function EachEventPage() {
           priority={true}
         />
         <div className=" ml-[4rem] w-full">
+          {imgLoading && (
+            <div className="flex justify-center items-center">
+              <Image
+                src={"/Bounce Bouncing GIF by Markham Sport Leagues.gif"}
+                alt="loading-icon"
+                width={200}
+                height={200}
+                priority={true}
+              />
+            </div>
+          )}
           <div className="w-[100%] shadow-lg rounded-xl">
             <Image
-              className="rounded-3xl"
+              className={`rounded-3xl ${
+                imgLoading ? "opacity-0" : "opacity-100"
+              } `}
               src={eventImg?.img!}
               alt=""
               width={0}
@@ -159,6 +173,7 @@ function EachEventPage() {
               sizes="100wv"
               style={{ width: "100%", height: "35rem" }}
               priority={true}
+              onLoad={() => setImgLoading(false)}
             />
           </div>
 
