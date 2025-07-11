@@ -88,7 +88,6 @@ function Hero() {
               />
             )}
           </div>
-          {/* {location && ( */}
           <div
             className={` ${
               location ? "block" : "hidden"

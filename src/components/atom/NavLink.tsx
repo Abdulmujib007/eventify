@@ -23,7 +23,7 @@ function NavLink() {
             pathname === "/events"
               ? "border-b-[3px] border-b-tifyYellow font-semibold "
               : ""
-          } tablet:pb-4 font-medium text-lg hover:border-b-[3px] border-b-tifyYellow w-fi transition-all duration-100 ease-out `}
+          } tablet:pb-4 font-medium text-lg hover:border-b-[3px] border-b-tifyYellow w-fit transition-all duration-100 ease-out `}
         >
           Events
         </p>

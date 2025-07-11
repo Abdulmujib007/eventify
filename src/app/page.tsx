@@ -58,10 +58,10 @@ function HomePage() {
         </div>
       </section>
       <section className="mx-[2rem] 2xl:mx-[8rem] 2xl:mb-[9.3rem] mb-[4rem]">
-        <header className="font-bold text-2xl xl:text-4xl">
+        <header className="font-bold text-2xl xl:text-4xl mb-[3rem] md:mb-0 ">
           Popular Events in Mumbai
         </header>
-        <div className="mt-[2rem] mb-10 2xl:mb-16 flex gap-2.5 md:gap-5">
+        <div className="mt-[2rem] mb-10 2xl:mb-16  gap-2.5 md:gap-5 md:flex hidden">
           <CategorySelect
             onClick={() => handleFilterButtonClick("All", 1)}
             background="white"
@@ -193,7 +193,7 @@ function HomePage() {
             placeholder="Enter your e-mail address"
             className="outline-none py-2.5 sm:py-5  pl-5   sm:pl-7  sm:w-[28rem] rounded-l-xl bg-white border-tifyPurple border-[1px] pr-2 truncate text-[0.8rem]  sm:text-[1rem] "
           />
-          <button className="text-[#FFE047]  bg-tifyPurple cursor-pointer hover:bg-[#413F53] py-2.5 sm:py-5 px-6 sm:px-8 font-bold  text-xl sm:text-2xl rounded-r-xl w-fit">
+          <button className="text-[#FFE047]  bg-tifyPurple cursor-pointer hover:bg-[#413F53] py-2.5 sm:py-5 px-6 sm:px-8 font-bold  text-[1rem] sm:text-2xl rounded-r-xl w-fit">
             Subscribe
           </button>
         </div>

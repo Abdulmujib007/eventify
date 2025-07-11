@@ -23,11 +23,11 @@ function Navbar() {
   };
   return (
     <nav
-      className={`w-full px-[1.5rem] xl:px-[5.56rem]  flex-col tablet:justify-between justify-end tablet:items-end items-start   bg-tifyPurple  text-[#fff] ${
+      className={`w-full flex-col tablet:justify-between justify-end tablet:items-end items-start     text-white z-50  ${
         pathname === "/login" || pathname === "/signup" ? "hidden" : "flex"
       }  `}
     >
-      <div className="flex w-full tablet:items-end items-center  justify-between ">
+      <div className="flex w-full tablet:items-end items-center  justify-between  px-[1.5rem] xl:px-[5.56rem] z-50 bg-tifyPurple ">
         <Link href={"/"} className="flex h-full items-center">
           <Image
             src={"/ticket.svg"}
@@ -235,120 +235,124 @@ function Navbar() {
           )}
         </section>
       </div>
-      <div className="flex gap-5 tablet:hidden ">
-        {isMenuOpen && (
-          <section className="w-full flex flex-col gap-[1rem] justify-center ml-2 mb-[1rem] ">
-            <NavLink />
-            {!isLoggedIn && (
-              <>
-                <Link className="mt-[1rem] mb-[1rem]" href={"/login"}>
-                  <span className="p-0 text-lg hover:text-tifyYellow">
-                    Create Event
-                  </span>
+      <div className="block tablet:hidden relative w-full ">
+        {/* {isMenuOpen && ( */}
+        <section
+          className={`w-full flex flex-col gap-[1rem] justify-center pl-[3rem] pb-[1.5rem] bg-tifyPurple absolute ${
+            isMenuOpen ? "top-[0]" : "top-[-30rem]"
+          } transition-all duration-[0.8s] ease-out   `}
+        >
+          <NavLink />
+          {!isLoggedIn && (
+            <>
+              <Link className="mt-[1rem] mb-[1rem]" href={"/login"}>
+                <span className="p-0 text-lg hover:text-tifyYellow">
+                  Create Event
+                </span>
+              </Link>
+              <div
+                className={` text-lg font-medium flex h-full gap-7 items-center`}
+              >
+                <Link className="hover:text-tifyYellow" href={"/login"}>
+                  Login
                 </Link>
-                <div
-                  className={` text-lg font-medium flex h-full gap-7 items-center`}
-                >
-                  <Link className="hover:text-tifyYellow" href={"/login"}>
-                    Login
-                  </Link>
-                  <div className="h-full flex items-center">
-                    <Link
-                      href={"/signup"}
-                      className="px-5 py-2 bg-tifyYellow rounded-[10px] text-black"
-                    >
-                      Sign up
-                    </Link>
-                  </div>
-                </div>
-              </>
-            )}
-            {isLoggedIn && (
-              <>
-                <Link className=" text-lg my-[1rem]" href={`/create-event`}>
-                  <span
-                    className={`p-0 hover:text-tifyYellow cursor-pointer ${
-                      pathname === "/create-event"
-                        ? "text-tifyYellow"
-                        : "text-white"
-                    } `}
+                <div className="h-full flex items-center">
+                  <Link
+                    href={"/signup"}
+                    className="px-5 py-2 bg-tifyYellow rounded-[10px] text-black"
                   >
-                    Create Event
-                  </span>
-                </Link>
-                <div
-                  className={` ${
-                    isLoggedIn ? "block" : "hidden"
-                  } text-lg font-medium flex h-full gap-7 items-center`}
-                >
-                  <Link className="nav-link" href={"/tickets"}>
-                    <Image
-                      className={`${
-                        pathname === "/tickets" ? "hidden" : " nav-icon1"
-                      }`}
-                      src={"/Ticket Button.svg"}
-                      alt="ticket-button"
-                      width={50}
-                      height={20}
-                      priority={true}
-                    />
-                    <Image
-                      className={`nav-icon2`}
-                      src={"/Property 1=Hover.svg"}
-                      alt="ticket-icon"
-                      width={50}
-                      height={20}
-                      priority={true}
-                    />
-
-                    <Image
-                      className={`${
-                        pathname === "/tickets" ? "nav-icon3" : "hidden"
-                      }`}
-                      src={"/Property 1=Hover.svg"}
-                      alt="ticket-icon"
-                      width={50}
-                      height={20}
-                      priority={true}
-                    />
-                  </Link>
-                  <Link className="nav-link" href={"/interested"}>
-                    <Image
-                      className={`${
-                        pathname === "/interested" ? "hidden" : "nav-icon1"
-                      } `}
-                      src={"/Interested Button.svg"}
-                      alt="ticket-button"
-                      width={74}
-                      height={20}
-                      priority={true}
-                    />
-
-                    <Image
-                      className={` nav-icon2 `}
-                      src={"/Property 1=Hover (1).svg"}
-                      alt="ticket-button"
-                      width={74}
-                      height={20}
-                      priority={true}
-                    />
-
-                    <Image
-                      className={`${
-                        pathname === "/interested" ? " nav-icon3 " : "hidden"
-                      }   `}
-                      src={"/Property 1=Hover (1).svg"}
-                      alt="ticket-button"
-                      width={74}
-                      height={20}
-                      priority={true}
-                    />
+                    Sign up
                   </Link>
                 </div>
-              </>
-            )}
-          </section>
-        )}
+              </div>
+            </>
+          )}
+          {isLoggedIn && (
+            <>
+              <Link className=" text-lg my-[1rem]" href={`/create-event`}>
+                <span
+                  className={`p-0 hover:text-tifyYellow cursor-pointer ${
+                    pathname === "/create-event"
+                      ? "text-tifyYellow"
+                      : "text-white"
+                  } `}
+                >
+                  Create Event
+                </span>
+              </Link>
+              <div
+                className={` ${
+                  isLoggedIn ? "block" : "hidden"
+                } text-lg font-medium flex h-full gap-7 items-center`}
+              >
+                <Link className="nav-link" href={"/tickets"}>
+                  <Image
+                    className={`${
+                      pathname === "/tickets" ? "hidden" : " nav-icon1"
+                    }`}
+                    src={"/Ticket Button.svg"}
+                    alt="ticket-button"
+                    width={50}
+                    height={20}
+                    priority={true}
+                  />
+                  <Image
+                    className={`nav-icon2`}
+                    src={"/Property 1=Hover.svg"}
+                    alt="ticket-icon"
+                    width={50}
+                    height={20}
+                    priority={true}
+                  />
+
+                  <Image
+                    className={`${
+                      pathname === "/tickets" ? "nav-icon3" : "hidden"
+                    }`}
+                    src={"/Property 1=Hover.svg"}
+                    alt="ticket-icon"
+                    width={50}
+                    height={20}
+                    priority={true}
+                  />
+                </Link>
+                <Link className="nav-link" href={"/interested"}>
+                  <Image
+                    className={`${
+                      pathname === "/interested" ? "hidden" : "nav-icon1"
+                    } `}
+                    src={"/Interested Button.svg"}
+                    alt="ticket-button"
+                    width={74}
+                    height={20}
+                    priority={true}
+                  />
+
+                  <Image
+                    className={` nav-icon2 `}
+                    src={"/Property 1=Hover (1).svg"}
+                    alt="ticket-button"
+                    width={74}
+                    height={20}
+                    priority={true}
+                  />
+
+                  <Image
+                    className={`${
+                      pathname === "/interested" ? " nav-icon3 " : "hidden"
+                    }   `}
+                    src={"/Property 1=Hover (1).svg"}
+                    alt="ticket-button"
+                    width={74}
+                    height={20}
+                    priority={true}
+                  />
+                </Link>
+              </div>
+            </>
+          )}
+        </section>
+        {/* )} */}
       </div>
     </nav>
   );
