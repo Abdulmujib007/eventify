@@ -88,9 +88,9 @@ body {
 }
 @media (width <= 40rem) {
   .heroBackground {
-    background-position: center 0rem;
+    background-position: left 0rem;
     background-size: contain;
-    background-blend-mode: overlay;
+    background-blend-mode: multiply;
   }
 }
 .cancel-img {

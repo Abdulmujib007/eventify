@@ -239,7 +239,7 @@ function Navbar() {
         {/* {isMenuOpen && ( */}
         <section
           className={`w-full flex flex-col gap-[1rem] justify-center pl-[3rem] pb-[1.5rem] bg-tifyPurple absolute ${
-            isMenuOpen ? "top-[0]" : "top-[-30rem]"
+            isMenuOpen ? "top-[-0.2rem]" : "top-[-30rem]"
           } transition-all duration-[0.8s] ease-out   `}
         >
           <NavLink />
